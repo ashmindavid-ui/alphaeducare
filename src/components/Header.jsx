@@ -5,8 +5,8 @@ import './Header.css';
 const NAV_LINKS = [
   { label: 'Home', href: '#home' },
   { label: 'Countries', href: '#countries' },
-  { label: 'Services', href: '#services' },
   { label: 'About', href: '#why-choose' },
+  { label: 'Services', href: '#services' },
   { label: 'Testimonials', href: '#testimonials' },
   { label: 'Contact', href: '#contact' },
 ];
