@@ -39,11 +39,11 @@ export default function Contact() {
             </li>
             <li>
               <i className="fa-solid fa-phone"></i>
-              <a href="tel:+919025574747">+91 90255 74747</a>
+              <a href="tel:+919360886307">+91 93608 86307</a>
             </li>
             <li>
               <i className="fa-solid fa-envelope"></i>
-              <a href="mailto:info@alphaglobaleducare.com">info@alphaglobaleducare.com</a>
+              <a href="mailto:alphaglobaleducare@gmail.com">alphaglobaleducare@gmail.com</a>
             </li>
             <li>
               <i className="fa-solid fa-clock"></i>
@@ -51,7 +51,7 @@ export default function Contact() {
             </li>
             <li>
               <i className="fa-brands fa-whatsapp"></i>
-              <a href="https://wa.me/9811234567" target="_blank" rel="noreferrer">981 123 4567</a>
+              <a href="https://wa.me/919360886307" target="_blank" rel="noreferrer">Chat on WhatsApp</a>
             </li>
           </ul>
         </div>

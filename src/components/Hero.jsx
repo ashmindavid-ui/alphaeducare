@@ -1,4 +1,5 @@
 import { useState, useEffect, useCallback } from 'react';
+import { Link } from 'react-router-dom';
 import './Hero.css';
 
 const STATS = [
@@ -11,30 +12,30 @@ const STATS = [
 const SLIDES = [
   {
     id: 1,
-    image: 'https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=1920&q=85',
-    imageMobile: 'https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=800&q=80',
-    eyebrow: 'Study · Grow · Succeed',
-    headline: 'Your Gateway to <span>Global Education</span>',
+    image: 'https://images.pexels.com/photos/30721230/pexels-photo-30721230.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080&dpr=1',
+    imageMobile: 'https://images.pexels.com/photos/30721230/pexels-photo-30721230.jpeg?auto=compress&cs=tinysrgb&w=800&h=900&dpr=1',
+    eyebrow: 'Study in the UK · Prestigious · Historic',
+    headline: 'Study in the <span>United Kingdom</span>',
     subtitle:
-      'We help students to study, grow and succeed in top universities around the world, with expert counselling from application to visa and beyond.',
+      'The UK offers world-renowned universities, rich cultural heritage, and excellent career opportunities. From Oxford to Cambridge, unlock your potential at top British institutions.',
   },
   {
     id: 2,
-    image: 'https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&w=1920&q=85',
-    imageMobile: 'https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&w=800&q=80',
-    eyebrow: 'Dream Big · Go Far',
-    headline: 'Explore <span>Top Universities</span> Worldwide',
+    image: 'https://images.unsplash.com/photo-1503614472-8c93d56e92ce?auto=format&fit=crop&w=1920&q=85',
+    imageMobile: 'https://images.unsplash.com/photo-1503614472-8c93d56e92ce?auto=format&fit=crop&w=800&q=80',
+    eyebrow: 'Study in Canada · Diverse · Welcoming',
+    headline: 'Study in <span>Canada</span>',
     subtitle:
-      'From the Ivy League to Oxbridge, from Australian sunbelt to European hubs — we open doors to 500+ prestigious institutions across 25+ countries.',
+      'Canada is known for its high-quality education system, multicultural environment, and immigration-friendly policies. Enjoy stunning natural landscapes and world-class universities.',
   },
   {
     id: 3,
-    image: 'https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&w=1920&q=85',
-    imageMobile: 'https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&w=800&q=80',
-    eyebrow: 'Your Journey · Our Mission',
-    headline: 'Your <span>Success Story</span> Starts Here',
+    image: 'https://images.unsplash.com/photo-1506973035872-a4ec16b8e8d9?auto=format&fit=crop&w=1920&q=85',
+    imageMobile: 'https://images.unsplash.com/photo-1506973035872-a4ec16b8e8d9?auto=format&fit=crop&w=800&q=80',
+    eyebrow: 'Study in Australia · Vibrant · Innovative',
+    headline: 'Study in <span>Australia</span>',
     subtitle:
-      'Join thousands of students who turned their study-abroad dreams into reality. Personalised guidance every step of the way — from course selection to graduation day.',
+      'Australia boasts a world-class education system with globally recognised degrees. Experience a vibrant campus lifestyle, stunning beaches, and excellent post-study work opportunities.',
   },
 ];
 
@@ -116,10 +117,10 @@ export default function Hero() {
           <p className="hero__subtitle">{slide.subtitle}</p>
 
           <div className="hero__cta-group">
-            <a href="#contact" className="btn btn-gold">
+            <Link to="/book-counselling" className="btn btn-gold">
               Book Free Counselling
-            </a>
-            <a href="#countries" className="btn btn-outline">
+            </Link>
+            <a href="/#countries" className="btn btn-outline">
               Explore Countries <i className="fa-solid fa-arrow-right"></i>
             </a>
           </div>

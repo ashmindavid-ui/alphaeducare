@@ -1,5 +1,5 @@
 .topbar {
-  background: var(--color-primary-darker);
+  background: var(--color-primary);
   color: var(--color-white);
   border-bottom: 2px solid var(--color-gold);
   font-size: 0.85rem;

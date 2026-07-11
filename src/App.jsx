@@ -1,3 +1,4 @@
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import TopBar from './components/TopBar';
 import Header from './components/Header';
 import Hero from './components/Hero';
@@ -5,27 +6,39 @@ import Countries from './components/Countries';
 import WhyChoose from './components/WhyChoose';
 import Services from './components/Services';
 import Testimonials from './components/Testimonials';
-import Partners from './components/Partners';
-import News from './components/News';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
+import CountryPage from './pages/CountryPage';
+import AboutPage from './pages/AboutPage';
+import BookingPage from './pages/BookingPage';
+
+function HomePage() {
+  return (
+    <>
+      <Hero />
+      <Countries />
+      <WhyChoose />
+      <Services />
+      <Testimonials />
+      <Contact />
+    </>
+  );
+}
 
 export default function App() {
   return (
-    <>
+    <Router>
       <TopBar />
       <Header />
       <main>
-        <Hero />
-        <Countries />
-        <WhyChoose />
-        <Services />
-        <Testimonials />
-        <Partners />
-        <News />
-        <Contact />
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/country/:countryId" element={<CountryPage />} />
+          <Route path="/about" element={<AboutPage />} />
+          <Route path="/book-counselling" element={<BookingPage />} />
+        </Routes>
       </main>
       <Footer />
-    </>
+    </Router>
   );
 }

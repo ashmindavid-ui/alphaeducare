@@ -25,10 +25,10 @@ export default function Footer() {
           <h4>Quick Links</h4>
           <ul>
             <li><a href="#home">Home</a></li>
-            <li><a href="#why-choose">About Us</a></li>
-            <li><a href="#countries">Countries</a></li>
+            <li><a href="/about">About Us</a></li>
+            <li><a href="/#countries">Countries</a></li>
             <li><a href="#services">Services</a></li>
-            <li><a href="#contact">Contact Us</a></li>
+            <li><a href="/#contact">Contact Us</a></li>
           </ul>
         </div>
 
@@ -47,8 +47,8 @@ export default function Footer() {
           <h4>Contact Us</h4>
           <ul className="footer__contact">
             <li><i className="fa-solid fa-location-dot"></i> 123, 1st Floor, Anwarul Road, Connaught Place, Delhi</li>
-            <li><i className="fa-solid fa-phone"></i> +91 90255 74747</li>
-            <li><i className="fa-solid fa-envelope"></i> info@alphaglobaleducare.com</li>
+            <li><i className="fa-solid fa-phone"></i> +91 93608 86307</li>
+            <li><i className="fa-solid fa-envelope"></i> alphaglobaleducare@gmail.com</li>
             <li><i className="fa-solid fa-clock"></i> Mon - Sat: 9:30 AM - 6:30 PM</li>
           </ul>
         </div>
@@ -65,7 +65,7 @@ export default function Footer() {
       </div>
 
       <a
-        href="https://wa.me/9811234567"
+        href="https://wa.me/919360886307"
         target="_blank"
         rel="noreferrer"
         className="footer__whatsapp"

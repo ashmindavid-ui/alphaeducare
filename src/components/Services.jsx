@@ -10,6 +10,8 @@ const SERVICES = [
   { icon: 'fa-hand-holding-dollar', title: 'Scholarship & Loan Assistance' },
   { icon: 'fa-house-chimney', title: 'Accommodation Assistance' },
   { icon: 'fa-suitcase-rolling', title: 'Pre-Departure Guidance' },
+  { icon: 'fa-language', title: 'German Language Training' },
+  { icon: 'fa-pen-to-square', title: 'IELTS Training' },
 ];
 
 export default function Services() {

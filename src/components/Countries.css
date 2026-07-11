@@ -1,11 +1,78 @@
-.countries__grid {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 20px;
+/* ==========================================================================
+   Countries — Horizontal Scroll Cards
+   ========================================================================== */
+
+.countries__scroll-section {
+  position: relative;
 }
 
-.country-card {
-  display: block;
+.countries__scroll-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.countries__track {
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  padding: 8px 4px 12px;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-primary) var(--color-border);
+  flex: 1;
+}
+
+.countries__track::-webkit-scrollbar {
+  height: 6px;
+}
+
+.countries__track::-webkit-scrollbar-track {
+  background: var(--color-border);
+  border-radius: 10px;
+}
+
+.countries__track::-webkit-scrollbar-thumb {
+  background: var(--color-primary);
+  border-radius: 10px;
+}
+
+/* ---- Scroll Buttons ---- */
+
+.countries__scroll-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--color-white);
+  border: 1.5px solid var(--color-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  flex-shrink: 0;
+  box-shadow: var(--shadow-sm);
+  transition: all var(--transition);
+  z-index: 2;
+}
+
+.countries__scroll-btn:hover {
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+  color: var(--color-white);
+  box-shadow: var(--shadow-md);
+}
+
+.countries__scroll-btn i {
+  font-size: 0.85rem;
+}
+
+/* ---- Card (Horizontal) ---- */
+
+.country-card-h {
+  flex-shrink: 0;
+  width: 240px;
   background: var(--color-white);
   border-radius: var(--radius-md);
   overflow: hidden;
@@ -14,24 +81,24 @@
   transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
 }
 
-.country-card:hover {
+.country-card-h:hover {
   transform: translateY(-8px);
   box-shadow: var(--shadow-md);
   border-color: var(--color-gold);
 }
 
-.country-card__image-wrap {
+.country-card-h__img {
   position: relative;
   height: 130px;
 }
 
-.country-card__image-wrap img:first-child {
+.country-card-h__img img:first-child {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
 
-.country-card__flag {
+.country-card-h__flag {
   position: absolute;
   bottom: -18px;
   left: 16px;
@@ -43,49 +110,42 @@
   box-shadow: var(--shadow-sm);
 }
 
-.country-card__body {
-  padding: 28px 16px 20px;
-}
-
-.country-card__body h3 {
-  font-size: 1.02rem;
-  margin-bottom: 8px;
-}
-
-.country-card__body p {
-  font-size: 0.83rem;
-  color: var(--color-text-muted);
-  line-height: 1.5;
-  min-height: 42px;
-}
-
-.country-card__link {
-  display: inline-flex;
+.country-card-h__body {
+  display: flex;
   align-items: center;
-  gap: 6px;
-  margin-top: 10px;
-  font-size: 0.82rem;
-  font-weight: 700;
-  color: var(--color-primary);
+  justify-content: space-between;
+  padding: 28px 16px 16px;
 }
 
-.country-card__link i {
-  font-size: 0.72rem;
+.country-card-h__body h3 {
+  font-size: 0.95rem;
+  color: var(--color-primary-darker);
+  margin: 0;
+}
+
+.country-card-h__arrow {
+  color: var(--color-primary);
+  font-size: 0.85rem;
   transition: transform var(--transition);
 }
 
-.country-card:hover .country-card__link i {
+.country-card-h:hover .country-card-h__arrow {
   transform: translateX(4px);
 }
 
-@media (max-width: 992px) {
-  .countries__grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
+/* ---- Responsive ---- */
 
-@media (max-width: 640px) {
-  .countries__grid {
-    grid-template-columns: repeat(2, 1fr);
+@media (max-width: 768px) {
+  .country-card-h {
+    width: 200px;
+  }
+
+  .countries__scroll-btn {
+    display: none;
+  }
+
+  .countries__track {
+    padding-left: 0;
+    padding-right: 0;
   }
 }
