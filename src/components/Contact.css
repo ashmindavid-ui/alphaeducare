@@ -1,0 +1,128 @@
+.contact {
+  background: linear-gradient(135deg, var(--color-primary-darker) 0%, var(--color-primary) 100%);
+}
+
+.contact .section-title__heading,
+.contact .section-title__eyebrow,
+.contact .section-title__subtitle {
+  color: var(--color-white);
+}
+
+.contact .section-title__eyebrow {
+  color: var(--color-gold-light);
+}
+
+.contact .section-title__eyebrow::before {
+  background: var(--color-gold-light);
+}
+
+.contact .section-title__heading em {
+  color: var(--color-gold);
+}
+
+.contact .section-title__subtitle {
+  color: rgba(255, 255, 255, 0.78);
+}
+
+.contact__inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 56px;
+  align-items: start;
+}
+
+.contact__details {
+  margin-top: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.contact__details li {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  color: rgba(255, 255, 255, 0.88);
+  font-size: 0.95rem;
+}
+
+.contact__details i {
+  width: 38px;
+  height: 38px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-gold);
+}
+
+.contact__details a {
+  color: rgba(255, 255, 255, 0.88);
+  transition: color var(--transition);
+}
+
+.contact__details a:hover {
+  color: var(--color-gold-light);
+}
+
+.contact__form {
+  background: var(--color-white);
+  border-radius: var(--radius-lg);
+  padding: 36px;
+  box-shadow: var(--shadow-md);
+}
+
+.contact__form h3 {
+  font-size: 1.3rem;
+  margin-bottom: 22px;
+  color: var(--color-primary-darker);
+}
+
+.contact__form label {
+  display: block;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--color-text-dark);
+  margin-bottom: 16px;
+}
+
+.contact__form input,
+.contact__form textarea {
+  width: 100%;
+  margin-top: 8px;
+  padding: 12px 14px;
+  border-radius: var(--radius-sm);
+  border: 1.5px solid var(--color-border);
+  font-family: var(--font-body);
+  font-size: 0.92rem;
+  font-weight: 400;
+  color: var(--color-text-dark);
+  resize: vertical;
+  transition: border-color var(--transition);
+}
+
+.contact__form input:focus,
+.contact__form textarea:focus {
+  border-color: var(--color-primary);
+  outline: none;
+}
+
+.contact__submit {
+  width: 100%;
+  margin-top: 6px;
+}
+
+@media (max-width: 900px) {
+  .contact__inner {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+}
+
+@media (max-width: 480px) {
+  .contact__form {
+    padding: 26px 20px;
+  }
+}

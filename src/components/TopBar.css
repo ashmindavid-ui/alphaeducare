@@ -1,0 +1,80 @@
+.topbar {
+  background: var(--color-primary-darker);
+  color: var(--color-white);
+  border-bottom: 2px solid var(--color-gold);
+  font-size: 0.85rem;
+}
+
+.topbar__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 9px 24px;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.topbar__contact {
+  display: flex;
+  gap: 24px;
+}
+
+.topbar__contact a {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  opacity: 0.9;
+  transition: opacity var(--transition), color var(--transition);
+}
+
+.topbar__contact a:hover {
+  opacity: 1;
+  color: var(--color-gold-light);
+}
+
+.topbar__social {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.topbar__follow {
+  opacity: 0.75;
+  font-size: 0.78rem;
+  letter-spacing: 0.5px;
+}
+
+.topbar__social a {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.1);
+  transition: background var(--transition), transform var(--transition), color var(--transition);
+}
+
+.topbar__social a:hover {
+  background: var(--color-gold);
+  color: var(--color-primary-darker);
+  transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+  .topbar__inner {
+    justify-content: center;
+    text-align: center;
+  }
+  .topbar__contact {
+    gap: 14px;
+    justify-content: center;
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .topbar__contact a span {
+    display: none;
+  }
+}
