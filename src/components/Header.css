@@ -2,13 +2,13 @@
   position: sticky;
   top: 0;
   z-index: 100;
-  background: var(--color-white);
-  box-shadow: var(--shadow-sm);
+  background: var(--color-primary);
+  box-shadow: 0 2px 16px rgba(4, 26, 61, 0.18);
   transition: padding var(--transition), box-shadow var(--transition);
 }
 
 .header--scrolled {
-  box-shadow: var(--shadow-md);
+  box-shadow: 0 8px 30px rgba(4, 26, 61, 0.28);
 }
 
 .header__inner {
@@ -31,6 +31,7 @@
   height: 52px;
   border-radius: 50%;
   object-fit: cover;
+  border: 2px solid rgba(255, 255, 255, 0.25);
 }
 
 .header__brandtext {
@@ -43,13 +44,13 @@
   font-family: var(--font-display);
   font-weight: 700;
   font-size: 1.15rem;
-  color: var(--color-primary);
+  color: var(--color-white);
   letter-spacing: 0.2px;
 }
 
 .header__tagline {
   font-size: 0.72rem;
-  color: var(--color-text-muted);
+  color: rgba(255, 255, 255, 0.72);
   font-weight: 600;
   letter-spacing: 0.3px;
 }
@@ -68,7 +69,7 @@
 .header__nav a {
   font-weight: 600;
   font-size: 0.95rem;
-  color: var(--color-text-dark);
+  color: var(--color-white);
   position: relative;
   padding: 6px 0;
   transition: color var(--transition);
@@ -86,7 +87,7 @@
 }
 
 .header__nav a:hover {
-  color: var(--color-primary);
+  color: var(--color-gold-light);
 }
 
 .header__nav a:hover::after {
@@ -117,7 +118,7 @@
   display: block;
   width: 100%;
   height: 2.5px;
-  background: var(--color-primary-darker);
+  background: var(--color-white);
   border-radius: 2px;
   transition: transform var(--transition), opacity var(--transition);
 }
@@ -130,6 +131,19 @@
 }
 .header__hamburger.is-open span:nth-child(3) {
   transform: translateY(-7.5px) rotate(-45deg);
+}
+
+/* ===== Desktop CTA button tweak for blue header ===== */
+.header__cta-desktop {
+  background: var(--color-white) !important;
+  color: var(--color-primary) !important;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15) !important;
+}
+
+.header__cta-desktop:hover {
+  background: var(--color-gold) !important;
+  color: var(--color-primary-darker) !important;
+  box-shadow: var(--shadow-gold) !important;
 }
 
 @media (max-width: 992px) {
@@ -172,9 +186,27 @@
     width: 100%;
   }
 
+  /* Mobile nav links — dark text on white panel */
+  .header__nav a {
+    color: var(--color-text-dark);
+  }
+
+  .header__nav a:hover {
+    color: var(--color-primary);
+  }
+
   .header__nav .header__nav-cta {
     display: inline-flex;
     margin-top: 28px;
     width: 100%;
+    background: var(--color-primary) !important;
+    color: var(--color-white) !important;
+    box-shadow: 0 4px 14px rgba(10, 79, 175, 0.35) !important;
+  }
+
+  .header__nav .header__nav-cta:hover {
+    background: var(--color-primary-dark) !important;
+    color: var(--color-white) !important;
+    box-shadow: 0 6px 20px rgba(10, 79, 175, 0.45) !important;
   }
 }
