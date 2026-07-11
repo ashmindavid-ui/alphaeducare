@@ -29,8 +29,8 @@ const SLIDES = [
   },
   {
     id: 3,
-    image: 'https://images.unsplash.com/photo-1523050854058-8df90110c7f1?auto=format&fit=crop&w=1920&q=85',
-    imageMobile: 'https://images.unsplash.com/photo-1523050854058-8df90110c7f1?auto=format&fit=crop&w=800&q=80',
+    image: 'https://images.unsplash.com/photo-1567168544640-5e0532dbeba3?auto=format&fit=crop&w=1920&q=85',
+    imageMobile: 'https://images.unsplash.com/photo-1567168544640-5e0532dbeba3?auto=format&fit=crop&w=800&q=80',
     eyebrow: 'Your Journey · Our Mission',
     headline: 'Your <span>Success Story</span> Starts Here',
     subtitle:

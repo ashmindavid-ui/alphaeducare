@@ -45,9 +45,9 @@
   z-index: 1;
   background: linear-gradient(
     135deg,
-    rgba(4, 26, 61, 0.88) 0%,
-    rgba(6, 43, 99, 0.72) 45%,
-    rgba(10, 79, 175, 0.55) 100%
+    rgba(4, 26, 61, 0.70) 0%,
+    rgba(6, 43, 99, 0.50) 45%,
+    rgba(10, 79, 175, 0.30) 100%
   );
   pointer-events: none;
 }
