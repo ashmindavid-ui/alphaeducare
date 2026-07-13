@@ -36,8 +36,8 @@ export default function CountryPage() {
     setTimeout(() => setFormSent(false), 4000);
   };
 
-  const getLogoUrl = (domain) =>
-    `https://logo.clearbit.com/${domain}?size=128`;
+  const getLogoUrl = (uni) =>
+    uni.logo || `https://logo.clearbit.com/${uni.domain}?size=128`;
 
   return (
     <>
@@ -102,11 +102,21 @@ export default function CountryPage() {
       <section className="country-destinations section" style={{ paddingTop: 0 }}>
         <div className="container">
           <SectionTitle eyebrow="Cities" title="Popular Study" highlighted="Destinations" />
-          <div className="country-badges">
+          <div className="country-cities-grid">
             {country.popularDestinations.map((d) => (
-              <span className="country-badge" key={d}>
-                <i className="fa-solid fa-location-dot"></i> {d}
-              </span>
+              <div className="country-city-card" key={d}>
+                <div className="country-city-card__img">
+                  <img
+                    src={country.cityImages?.[d] || country.heroImage}
+                    alt={d}
+                    loading="lazy"
+                  />
+                  <div className="country-city-card__overlay">
+                    <i className="fa-solid fa-location-dot"></i>
+                    <span>{d}</span>
+                  </div>
+                </div>
+              </div>
             ))}
           </div>
         </div>
@@ -133,19 +143,31 @@ export default function CountryPage() {
           <div className="country-univ-grid">
             {country.universities.map((u) => (
               <div className="country-univ-card" key={u.name}>
-                <div className="country-univ-logo">
+                <div className="country-univ-card__logo-wrap">
                   <img
-                    src={getLogoUrl(u.domain)}
+                    src={getLogoUrl(u)}
                     alt={`${u.name} logo`}
+                    className="country-univ-card__logo"
                     loading="lazy"
                     onError={(e) => {
                       e.target.style.display = 'none';
-                      e.target.nextSibling.style.display = 'flex';
+                      const fallback = e.target.parentElement.querySelector('.country-univ-card__fallback');
+                      if (fallback) fallback.style.display = 'flex';
                     }}
                   />
-                  <i className="fa-solid fa-university" style={{ display: 'none' }}></i>
+                  <div className="country-univ-card__fallback" style={{ display: 'none' }}>
+                    <i className="fa-solid fa-building-columns"></i>
+                  </div>
                 </div>
-                <span className="country-univ-name">{u.name}</span>
+                <span className="country-univ-card__name">{u.name}</span>
+                <a
+                  href={`https://${u.domain}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="country-univ-card__link"
+                >
+                  Visit Website <i className="fa-solid fa-arrow-up-right-from-square"></i>
+                </a>
               </div>
             ))}
           </div>

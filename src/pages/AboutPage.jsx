@@ -1,9 +1,10 @@
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import SectionTitle from '../components/SectionTitle';
 import useReveal from '../hooks/useReveal';
 import './AboutPage.css';
 
 export default function AboutPage() {
+  const navigate = useNavigate();
   const ref1 = useReveal();
   const ref2 = useReveal();
   const ref3 = useReveal();
@@ -225,9 +226,15 @@ export default function AboutPage() {
             <Link to="/book-counselling" className="btn btn-gold">
               Book Free Counselling <i className="fa-solid fa-arrow-right"></i>
             </Link>
-            <a href="/#contact" className="btn btn-outline-dark">
+            <button className="btn btn-outline-dark" onClick={() => {
+              navigate('/');
+              setTimeout(() => {
+                const el = document.getElementById('contact');
+                if (el) el.scrollIntoView({ behavior: 'smooth' });
+              }, 300);
+            }}>
               Contact Us <i className="fa-solid fa-envelope"></i>
-            </a>
+            </button>
           </div>
         </div>
       </section>

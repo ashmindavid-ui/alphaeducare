@@ -1,4 +1,5 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+import { useEffect } from 'react';
 import TopBar from './components/TopBar';
 import Header from './components/Header';
 import Hero from './components/Hero';
@@ -11,6 +12,16 @@ import Footer from './components/Footer';
 import CountryPage from './pages/CountryPage';
 import AboutPage from './pages/AboutPage';
 import BookingPage from './pages/BookingPage';
+
+function ScrollToTop() {
+  const { pathname, hash } = useLocation();
+  useEffect(() => {
+    if (!hash) {
+      window.scrollTo(0, 0);
+    }
+  }, [pathname, hash]);
+  return null;
+}
 
 function HomePage() {
   return (
@@ -28,6 +39,7 @@ function HomePage() {
 export default function App() {
   return (
     <Router>
+      <ScrollToTop />
       <TopBar />
       <Header />
       <main>
