@@ -1,8 +1,66 @@
 import { useParams, Link } from 'react-router-dom';
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { COUNTRIES_DATA } from '../data/countries';
 import SectionTitle from '../components/SectionTitle';
 import './CountryPage.css';
+
+function HorizontalScroll({ children, className }) {
+  const containerRef = useRef(null);
+  const [showRightArrow, setShowRightArrow] = useState(false);
+
+  const checkScroll = () => {
+    const el = containerRef.current;
+    if (el) {
+      const hasOverflow = el.scrollWidth > el.clientWidth;
+      const isNotAtEnd = el.scrollLeft + el.clientWidth < el.scrollWidth - 10;
+      setShowRightArrow(hasOverflow && isNotAtEnd);
+    }
+  };
+
+  useEffect(() => {
+    const el = containerRef.current;
+    if (!el) return;
+
+    checkScroll();
+
+    el.addEventListener('scroll', checkScroll);
+    window.addEventListener('resize', checkScroll);
+
+    const observer = new MutationObserver(checkScroll);
+    observer.observe(el, { childList: true, subtree: true });
+
+    return () => {
+      el.removeEventListener('scroll', checkScroll);
+      window.removeEventListener('resize', checkScroll);
+      observer.disconnect();
+    };
+  }, [children]);
+
+  const handleScrollRight = () => {
+    const el = containerRef.current;
+    if (el) {
+      el.scrollBy({ left: 300, behavior: 'smooth' });
+    }
+  };
+
+  return (
+    <div className="horizontal-scroll-container">
+      <div className={className} ref={containerRef}>
+        {children}
+      </div>
+      {showRightArrow && (
+        <button
+          className="horizontal-scroll-arrow-btn"
+          onClick={handleScrollRight}
+          aria-label="Scroll right"
+        >
+          <i className="fa-solid fa-chevron-right"></i>
+        </button>
+      )}
+    </div>
+  );
+}
+
 
 export default function CountryPage() {
   const { countryId } = useParams();
@@ -37,7 +95,7 @@ export default function CountryPage() {
   };
 
   const getLogoUrl = (uni) =>
-    uni.logo || `https://logo.clearbit.com/${uni.domain}?size=128`;
+    uni.logo || `https://logo.clearbit.com/${uni.domain}?size=200`;
 
   return (
     <>
@@ -102,7 +160,7 @@ export default function CountryPage() {
       <section className="country-destinations section" style={{ paddingTop: 0 }}>
         <div className="container">
           <SectionTitle eyebrow="Cities" title="Popular Study" highlighted="Destinations" />
-          <div className="country-cities-grid">
+          <HorizontalScroll className="country-cities-track">
             {country.popularDestinations.map((d) => (
               <div className="country-city-card" key={d}>
                 <div className="country-city-card__img">
@@ -118,7 +176,7 @@ export default function CountryPage() {
                 </div>
               </div>
             ))}
-          </div>
+          </HorizontalScroll>
         </div>
       </section>
 
@@ -140,7 +198,7 @@ export default function CountryPage() {
       <section className="country-universities section" style={{ paddingTop: 0 }}>
         <div className="container">
           <SectionTitle eyebrow="Partners" title="Our Partner" highlighted="Universities" />
-          <div className="country-univ-grid">
+          <HorizontalScroll className="country-univ-track">
             {country.universities.map((u) => (
               <div className="country-univ-card" key={u.name}>
                 <div className="country-univ-card__logo-wrap">
@@ -170,7 +228,7 @@ export default function CountryPage() {
                 </a>
               </div>
             ))}
-          </div>
+          </HorizontalScroll>
         </div>
       </section>
 
