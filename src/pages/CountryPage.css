@@ -54,7 +54,8 @@
 }
 
 .country-hero__flag {
-  font-size: 3rem;
+  font-size: 2rem;
+  font-weight: 600;
   display: block;
   margin-bottom: 12px;
   line-height: 1;

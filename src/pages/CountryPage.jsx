@@ -280,7 +280,7 @@ export default function CountryPage() {
               </label>
               <label>
                 Phone Number
-                <input type="tel" name="phone" placeholder="+91 98765 43210" value={form.phone} onChange={handleFormChange} required />
+                <input type="tel" name="phone" placeholder="Your Number" value={form.phone} onChange={handleFormChange} required />
               </label>
               <label>
                 Message

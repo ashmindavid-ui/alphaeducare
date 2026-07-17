@@ -14,16 +14,16 @@ export default function TopBar() {
         </div>
         <div className="topbar__social">
           <span className="topbar__follow">Follow Us</span>
-          <a href="https://facebook.com" target="_blank" rel="noreferrer" aria-label="Facebook">
+          <a href="https://www.facebook.com/ALPHAGLOBALEDUCARE" target="_blank" rel="noreferrer" aria-label="Facebook">
             <i className="fa-brands fa-facebook-f"></i>
           </a>
-          <a href="https://instagram.com" target="_blank" rel="noreferrer" aria-label="Instagram">
+          <a href="https://www.instagram.com/alphaglobaleducare/" target="_blank" rel="noreferrer" aria-label="Instagram">
             <i className="fa-brands fa-instagram"></i>
           </a>
-          <a href="https://youtube.com" target="_blank" rel="noreferrer" aria-label="YouTube">
+          <a href="https://www.youtube.com/@alphaglobaleducare" target="_blank" rel="noreferrer" aria-label="YouTube">
             <i className="fa-brands fa-youtube"></i>
           </a>
-          <a href="https://linkedin.com" target="_blank" rel="noreferrer" aria-label="LinkedIn">
+          <a href="https://www.linkedin.com/company/alpha-global-educare" target="_blank" rel="noreferrer" aria-label="LinkedIn">
             <i className="fa-brands fa-linkedin-in"></i>
           </a>
         </div>

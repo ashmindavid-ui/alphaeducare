@@ -1,0 +1,223 @@
+/* ==========================================================================
+   Counselling Form Popup Card
+   ========================================================================== */
+
+.counselling-form {
+  padding: 8px 0;
+}
+
+.counselling-form__header {
+  margin-bottom: 16px;
+}
+
+.counselling-form__header h3 {
+  font-size: 1.15rem;
+  color: var(--color-primary-darker);
+  margin-bottom: 6px;
+}
+
+.counselling-form__header h3 i {
+  color: var(--color-gold);
+  margin-right: 8px;
+}
+
+.counselling-form__header p {
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+  line-height: 1.5;
+}
+
+/* Working Hours */
+.counselling-form__hours {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: linear-gradient(135deg, var(--color-primary-darker), var(--color-primary));
+  color: var(--color-white);
+  padding: 10px 16px;
+  border-radius: var(--radius-sm);
+  font-size: 0.82rem;
+  font-weight: 600;
+  margin-bottom: 18px;
+}
+
+.counselling-form__hours i {
+  color: var(--color-gold);
+  font-size: 0.9rem;
+}
+
+/* Form Row */
+.counselling-form__row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+/* Labels */
+.counselling-form__label {
+  display: block;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--color-text-dark);
+  margin-bottom: 16px;
+}
+
+.counselling-form__label input,
+.counselling-form__label select {
+  width: 100%;
+  margin-top: 5px;
+  padding: 10px 12px;
+  border-radius: var(--radius-sm);
+  border: 1.5px solid var(--color-border);
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  font-weight: 400;
+  color: var(--color-text-dark);
+  transition: border-color var(--transition);
+  appearance: auto;
+}
+
+.counselling-form__label input:focus,
+.counselling-form__label select:focus {
+  border-color: var(--color-primary);
+  outline: none;
+}
+
+.counselling-form__label--error input,
+.counselling-form__label--error select {
+  border-color: #dc3545;
+}
+
+.counselling-form__field-error {
+  display: block;
+  color: #dc3545;
+  font-size: 0.7rem;
+  font-weight: 600;
+  margin-top: 3px;
+}
+
+/* Alerts */
+.counselling-form__alert {
+  display: flex;
+  gap: 12px;
+  padding: 14px 16px;
+  border-radius: var(--radius-sm);
+  margin-bottom: 16px;
+  align-items: flex-start;
+}
+
+.counselling-form__alert i {
+  font-size: 1.3rem;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.counselling-form__alert strong {
+  display: block;
+  font-size: 0.88rem;
+  margin-bottom: 3px;
+}
+
+.counselling-form__alert p {
+  font-size: 0.82rem;
+  line-height: 1.5;
+}
+
+.counselling-form__alert--success {
+  background: #d4edda;
+  border: 1px solid #c3e6cb;
+  color: #155724;
+}
+
+.counselling-form__alert--success i {
+  color: #28a745;
+}
+
+.counselling-form__alert--error {
+  background: #f8d7da;
+  border: 1px solid #f5c6cb;
+  color: #721c24;
+}
+
+.counselling-form__alert--error i {
+  color: #dc3545;
+}
+
+.counselling-form__retry-btn {
+  background: none;
+  border: none;
+  color: var(--color-primary);
+  font-weight: 700;
+  font-size: 0.82rem;
+  padding: 0;
+  margin-top: 6px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.counselling-form__retry-btn:hover {
+  text-decoration: underline;
+}
+
+/* Time Slots */
+.counselling-form__time-slots {
+  margin-bottom: 18px;
+}
+
+.counselling-form__time-slots > span {
+  display: block;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--color-text-dark);
+  margin-bottom: 8px;
+}
+
+.counselling-form__time-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.counselling-form__time-chip {
+  padding: 7px 14px;
+  border-radius: 100px;
+  border: 1.5px solid var(--color-border);
+  background: var(--color-white);
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--color-text-dark);
+  cursor: pointer;
+  transition: all var(--transition);
+}
+
+.counselling-form__time-chip:hover {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+}
+
+.counselling-form__time-chip--active {
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+  color: var(--color-white);
+}
+
+.counselling-form__no-slots {
+  font-size: 0.82rem;
+  color: var(--color-text-muted);
+  font-style: italic;
+}
+
+/* Submit */
+.counselling-form__submit {
+  width: 100%;
+  margin-top: 4px;
+}
+
+@media (max-width: 600px) {
+  .counselling-form__row {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,5 +1,6 @@
 import { useState, useEffect, useCallback } from 'react';
 import { Link } from 'react-router-dom';
+import CounsellingForm from './CounsellingForm';
 import './Hero.css';
 
 const STATS = [
@@ -42,6 +43,7 @@ const SLIDES = [
 export default function Hero() {
   const [current, setCurrent] = useState(0);
   const [isTransitioning, setIsTransitioning] = useState(false);
+  const [showForm, setShowForm] = useState(false);
 
   const goTo = useCallback(
     (index) => {
@@ -117,9 +119,9 @@ export default function Hero() {
           <p className="hero__subtitle">{slide.subtitle}</p>
 
           <div className="hero__cta-group">
-            <Link to="/book-counselling" className="btn btn-gold">
+            <button className="btn btn-gold" onClick={() => setShowForm(true)}>
               Book Free Counselling
-            </Link>
+            </button>
             <a href="/#countries" className="btn btn-outline">
               Explore Countries <i className="fa-solid fa-arrow-right"></i>
             </a>
@@ -163,6 +165,21 @@ export default function Hero() {
           </div>
         </div>
       </div>
+      {/* Booking Form Popup */}
+      {showForm && (
+        <div className="hero__form-overlay" onClick={() => setShowForm(false)}>
+          <div className="hero__form-card" onClick={(e) => e.stopPropagation()}>
+            <button
+              className="hero__form-close"
+              onClick={() => setShowForm(false)}
+              aria-label="Close form"
+            >
+              <i className="fa-solid fa-xmark"></i>
+            </button>
+            <CounsellingForm onSuccess={() => setShowForm(false)} />
+          </div>
+        </div>
+      )}
     </section>
   );
 }

@@ -174,7 +174,7 @@ export default function BookingPage() {
                 <input
                   type="tel"
                   name="phone"
-                  placeholder="+91 98765 43210"
+                  placeholder="Your Number"
                   value={form.phone}
                   onChange={handleChange}
                 />

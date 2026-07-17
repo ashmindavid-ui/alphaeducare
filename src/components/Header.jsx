@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import logo from '../assets/logo.png';
+import CounsellingForm from './CounsellingForm';
 import './Header.css';
 
 const NAV_LINKS = [
@@ -15,6 +16,7 @@ const NAV_LINKS = [
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [showForm, setShowForm] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -27,6 +29,14 @@ export default function Header() {
   useEffect(() => {
     document.body.style.overflow = menuOpen ? 'hidden' : '';
   }, [menuOpen]);
+
+  // Close form on Escape
+  useEffect(() => {
+    if (!showForm) return;
+    const handleEsc = (e) => { if (e.key === 'Escape') setShowForm(false); };
+    window.addEventListener('keydown', handleEsc);
+    return () => window.removeEventListener('keydown', handleEsc);
+  }, [showForm]);
 
   // Close menu on route change
   useEffect(() => {
@@ -102,15 +112,15 @@ export default function Header() {
           <ul>
             {NAV_LINKS.map((link) => renderNavLink(link))}
           </ul>
-          <Link to="/book-counselling" className="btn btn-gold header__nav-cta" onClick={() => setMenuOpen(false)}>
-            Book Counselling
-          </Link>
+          <button className="btn btn-gold header__nav-cta" onClick={() => { setMenuOpen(false); setShowForm(true); }}>
+            Book Free Counselling
+          </button>
         </nav>
 
         <div className="header__actions">
-          <Link to="/book-counselling" className="btn btn-gold header__cta-desktop">
-            Book Counselling
-          </Link>
+          <button className="btn btn-gold header__cta-desktop" onClick={() => setShowForm(true)}>
+            Book Free Counselling
+          </button>
           <button
             className={`header__hamburger ${menuOpen ? 'is-open' : ''}`}
             onClick={() => setMenuOpen((v) => !v)}
@@ -123,6 +133,21 @@ export default function Header() {
           </button>
         </div>
       </div>
+      {/* Booking Form Popup */}
+      {showForm && (
+        <div className="header__form-overlay" onClick={() => setShowForm(false)}>
+          <div className="header__form-card" onClick={(e) => e.stopPropagation()}>
+            <button
+              className="header__form-close"
+              onClick={() => setShowForm(false)}
+              aria-label="Close form"
+            >
+              <i className="fa-solid fa-xmark"></i>
+            </button>
+            <CounsellingForm onSuccess={() => setShowForm(false)} />
+          </div>
+        </div>
+      )}
     </header>
   );
 }
