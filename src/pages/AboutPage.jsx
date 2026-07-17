@@ -1,9 +1,12 @@
+import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import SectionTitle from '../components/SectionTitle';
+import CounsellingForm from '../components/CounsellingForm';
 import useReveal from '../hooks/useReveal';
 import './AboutPage.css';
 
 export default function AboutPage() {
+  const [showForm, setShowForm] = useState(false);
   const navigate = useNavigate();
   const ref1 = useReveal();
   const ref2 = useReveal();
@@ -223,9 +226,9 @@ export default function AboutPage() {
         <div className="container">
           <SectionTitle eyebrow="Our Values" title="Integrity." highlighted="Transparency. Commitment. Excellence." subtitle="As we continue to grow, our values remain unchanged." />
           <div className="about-values__cta">
-            <Link to="/book-counselling" className="btn btn-gold">
+            <button className="btn btn-gold" onClick={() => setShowForm(true)}>
               Book Free Counselling <i className="fa-solid fa-arrow-right"></i>
-            </Link>
+            </button>
             <button className="btn btn-outline-dark" onClick={() => {
               navigate('/');
               setTimeout(() => {
@@ -238,6 +241,22 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
+
+      {/* Booking Form Popup */}
+      {showForm && (
+        <div className="about__form-overlay" onClick={() => setShowForm(false)}>
+          <div className="about__form-card" onClick={(e) => e.stopPropagation()}>
+            <button
+              className="about__form-close"
+              onClick={() => setShowForm(false)}
+              aria-label="Close form"
+            >
+              <i className="fa-solid fa-xmark"></i>
+            </button>
+            <CounsellingForm onSuccess={() => setShowForm(false)} />
+          </div>
+        </div>
+      )}
     </>
   );
 }
