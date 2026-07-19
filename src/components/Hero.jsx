@@ -13,8 +13,8 @@ const STATS = [
 const SLIDES = [
   {
     id: 1,
-    image: 'https://images.pexels.com/photos/30721230/pexels-photo-30721230.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080&dpr=1',
-    imageMobile: 'https://images.pexels.com/photos/30721230/pexels-photo-30721230.jpeg?auto=compress&cs=tinysrgb&w=800&h=900&dpr=1',
+    image: 'https://images.pexels.com/photos/24739980/pexels-photo-24739980.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080&dpr=1',
+    imageMobile: 'https://images.pexels.com/photos/24739980/pexels-photo-24739980.jpeg?auto=compress&cs=tinysrgb&w=800&h=900&dpr=1',
     eyebrow: 'Study in the UK · Prestigious · Historic',
     headline: 'Study in the <span>United Kingdom</span>',
     subtitle:
@@ -22,8 +22,8 @@ const SLIDES = [
   },
   {
     id: 2,
-    image: 'https://images.unsplash.com/photo-1503614472-8c93d56e92ce?auto=format&fit=crop&w=1920&q=85',
-    imageMobile: 'https://images.unsplash.com/photo-1503614472-8c93d56e92ce?auto=format&fit=crop&w=800&q=80',
+    image: 'https://images.pexels.com/photos/29240328/pexels-photo-29240328.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080&dpr=1',
+    imageMobile: 'https://images.pexels.com/photos/29240328/pexels-photo-29240328.jpeg?auto=compress&cs=tinysrgb&w=800&h=900&dpr=1',
     eyebrow: 'Study in Canada · Diverse · Welcoming',
     headline: 'Study in <span>Canada</span>',
     subtitle:

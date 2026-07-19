@@ -1,3 +1,58 @@
+import angliaRuskin from '../assets/Anglia Ruskin University.png';
+import birminghamCity from '../assets/Birmingham City University.png';
+import coventry from '../assets/Coventry University.png';
+import deMontfort from '../assets/De Montfort University.png';
+import middlesex from '../assets/Middlesex University London.png';
+import northumbria from '../assets/Northumbria University.png';
+import bedfordshire from '../assets/University of Bedfordshire.png';
+import derby from '../assets/University of Derby.png';
+import eastLondon from '../assets/University of East London (UEL).png';
+import essex from '../assets/University of Essex.png';
+import greenwich from '../assets/University of Greenwich.png';
+import hertfordshire from '../assets/University of Hertfordshire.png';
+import portsmouth from '../assets/University of Portsmouth.png';
+import sunderland from '../assets/University of Sunderland.png';
+import westLondon from '../assets/University of West London.png';
+import harvard from '../assets/Harvard University.png';
+import mit from '../assets/Massachusetts Institute of Technology.png';
+import berkeley from '../assets/University of California, Berkeley.png';
+import columbia from '../assets/Columbia University.png';
+import yale from '../assets/Yale University.png';
+import princeton from '../assets/Princeton University.png';
+import chicago from '../assets/University of Chicago.png';
+import toronto from '../assets/University of Toronto.png';
+import britishColumbia from '../assets/University of British Columbia.png';
+import mcgill from '../assets/McGill University.png';
+import waterloo from '../assets/University of Waterloo.png';
+import alberta from '../assets/University of Alberta.png';
+import montreal from '../assets/Université de Montréal.png';
+import mcmaster from '../assets/McMaster University.png';
+import calgary from '../assets/University of Calgary.png';
+import trinityCollegeDublin from '../assets/Trinity College Dublin.png';
+import universityCollegeDublin from '../assets/University College Dublin.png';
+import universityOfGalway from '../assets/University of Galway.png';
+import universityCollegeCork from '../assets/University College Cork.png';
+import dublinCityUniversity from '../assets/Dublin City University.png';
+import universityOfLimerick from '../assets/University of Limerick.png';
+import maynoothUniversity from '../assets/Maynooth University.png';
+import technologicalUniversityDublin from '../assets/Technological University Dublin.png';
+import melbourne from '../assets/University of Melbourne.png';
+import sydney from '../assets/University of Sydney.png';
+import unsw from '../assets/UNSW Sydney.png';
+import australianNational from '../assets/Australian National University.png';
+import monash from '../assets/Monash University.png';
+import queensland from '../assets/University of Queensland.png';
+import adelaide from '../assets/University of Adelaide.png';
+import technologySydney from '../assets/University of Technology Sydney.png';
+import auckland from '../assets/University of Auckland.png';
+import otago from '../assets/University of Otago.png';
+import victoriaWellington from '../assets/Victoria University of Wellington.png';
+import canterbury from '../assets/University of Canterbury.png';
+import massey from '../assets/Massey University.png';
+import waikato from '../assets/University of Waikato.png';
+import lincoln from '../assets/Lincoln University.png';
+import aut from '../assets/Auckland University of Technology.png';
+
 export const COUNTRIES_DATA = [
   {
     id: 'united-kingdom',
@@ -55,21 +110,21 @@ export const COUNTRIES_DATA = [
       postgraduate: '1 Year (Most Master\'s Programs)',
     },
     universities: [
-      { name: 'University of Hertfordshire', domain: 'herts.ac.uk', logo: 'https://logo.clearbit.com/herts.ac.uk?size=200' },
-      { name: 'Coventry University', domain: 'coventry.ac.uk', logo: 'https://logo.clearbit.com/coventry.ac.uk?size=200' },
-      { name: 'University of East London (UEL)', domain: 'uel.ac.uk', logo: 'https://logo.clearbit.com/uel.ac.uk?size=200' },
-      { name: 'University of Greenwich', domain: 'gre.ac.uk', logo: 'https://logo.clearbit.com/gre.ac.uk?size=200' },
-      { name: 'University of Portsmouth', domain: 'port.ac.uk', logo: 'https://logo.clearbit.com/port.ac.uk?size=200' },
-      { name: 'De Montfort University', domain: 'dmu.ac.uk', logo: 'https://logo.clearbit.com/dmu.ac.uk?size=200' },
-      { name: 'Northumbria University', domain: 'northumbria.ac.uk', logo: 'https://logo.clearbit.com/northumbria.ac.uk?size=200' },
-      { name: 'University of Sunderland', domain: 'sunderland.ac.uk', logo: 'https://logo.clearbit.com/sunderland.ac.uk?size=200' },
-      { name: 'University of Bedfordshire', domain: 'beds.ac.uk', logo: 'https://logo.clearbit.com/beds.ac.uk?size=200' },
-      { name: 'University of West London', domain: 'uwl.ac.uk', logo: 'https://logo.clearbit.com/uwl.ac.uk?size=200' },
-      { name: 'Birmingham City University', domain: 'bcu.ac.uk', logo: 'https://logo.clearbit.com/bcu.ac.uk?size=200' },
-      { name: 'Middlesex University London', domain: 'mdx.ac.uk', logo: 'https://logo.clearbit.com/mdx.ac.uk?size=200' },
-      { name: 'University of Essex', domain: 'essex.ac.uk', logo: 'https://logo.clearbit.com/essex.ac.uk?size=200' },
-      { name: 'University of Derby', domain: 'derby.ac.uk', logo: 'https://logo.clearbit.com/derby.ac.uk?size=200' },
-      { name: 'Anglia Ruskin University', domain: 'aru.ac.uk', logo: 'https://logo.clearbit.com/aru.ac.uk?size=200' },
+      { name: 'University of Hertfordshire', domain: 'herts.ac.uk', logo: hertfordshire },
+      { name: 'Coventry University', domain: 'coventry.ac.uk', logo: coventry },
+      { name: 'University of East London (UEL)', domain: 'uel.ac.uk', logo: eastLondon },
+      { name: 'University of Greenwich', domain: 'gre.ac.uk', logo: greenwich },
+      { name: 'University of Portsmouth', domain: 'port.ac.uk', logo: portsmouth },
+      { name: 'De Montfort University', domain: 'dmu.ac.uk', logo: deMontfort },
+      { name: 'Northumbria University', domain: 'northumbria.ac.uk', logo: northumbria },
+      { name: 'University of Sunderland', domain: 'sunderland.ac.uk', logo: sunderland },
+      { name: 'University of Bedfordshire', domain: 'beds.ac.uk', logo: bedfordshire },
+      { name: 'University of West London', domain: 'uwl.ac.uk', logo: westLondon },
+      { name: 'Birmingham City University', domain: 'bcu.ac.uk', logo: birminghamCity },
+      { name: 'Middlesex University London', domain: 'mdx.ac.uk', logo: middlesex },
+      { name: 'University of Essex', domain: 'essex.ac.uk', logo: essex },
+      { name: 'University of Derby', domain: 'derby.ac.uk', logo: derby },
+      { name: 'Anglia Ruskin University', domain: 'aru.ac.uk', logo: angliaRuskin },
     ],
   },
   {
@@ -122,14 +177,14 @@ export const COUNTRIES_DATA = [
       postgraduate: '1–2 Years',
     },
     universities: [
-      { name: 'Harvard University', domain: 'harvard.edu', logo: 'https://upload.wikimedia.org/wikipedia/commons/e/ee/Harvard_University_logo.svg' },
-      { name: 'Massachusetts Institute of Technology', domain: 'mit.edu', logo: 'https://upload.wikimedia.org/wikipedia/commons/0/07/MIT_Logo.svg' },
+      { name: 'Harvard University', domain: 'harvard.edu', logo: harvard },
+      { name: 'Massachusetts Institute of Technology', domain: 'mit.edu', logo: mit },
       { name: 'Stanford University', domain: 'stanford.edu', logo: 'https://upload.wikimedia.org/wikipedia/commons/4/4b/Stanford_Cardinal_logo.svg' },
-      { name: 'University of California, Berkeley', domain: 'berkeley.edu', logo: 'https://upload.wikimedia.org/wikipedia/commons/a/a2/University_of_California%2C_Berkeley_logo.svg' },
-      { name: 'Columbia University', domain: 'columbia.edu', logo: 'https://upload.wikimedia.org/wikipedia/commons/7/75/Columbia_University_1754.svg' },
-      { name: 'Yale University', domain: 'yale.edu', logo: 'https://upload.wikimedia.org/wikipedia/commons/1/1e/Yale_University_logo.svg' },
-      { name: 'Princeton University', domain: 'princeton.edu', logo: 'https://upload.wikimedia.org/wikipedia/commons/f/ff/Princeton_text_logo.svg' },
-      { name: 'University of Chicago', domain: 'uchicago.edu', logo: 'https://upload.wikimedia.org/wikipedia/commons/2/23/University_of_Chicago_wordmark.svg' },
+      { name: 'University of California, Berkeley', domain: 'berkeley.edu', logo: berkeley },
+      { name: 'Columbia University', domain: 'columbia.edu', logo: columbia },
+      { name: 'Yale University', domain: 'yale.edu', logo: yale },
+      { name: 'Princeton University', domain: 'princeton.edu', logo: princeton },
+      { name: 'University of Chicago', domain: 'uchicago.edu', logo: chicago },
     ],
   },
   {
@@ -184,14 +239,14 @@ export const COUNTRIES_DATA = [
       postgraduate: '1–2 Years',
     },
     universities: [
-      { name: 'University of Toronto', domain: 'utoronto.ca', logo: 'https://upload.wikimedia.org/wikipedia/commons/0/00/UofT_Wordmark.png' },
-      { name: 'University of British Columbia', domain: 'ubc.ca', logo: 'https://upload.wikimedia.org/wikipedia/commons/8/87/British_columbia_ca_univ_logo.svg' },
-      { name: 'McGill University', domain: 'mcgill.ca', logo: 'https://upload.wikimedia.org/wikipedia/commons/e/e9/Mcgill_univ_ca_logo.png' },
-      { name: 'University of Waterloo', domain: 'uwaterloo.ca', logo: 'https://upload.wikimedia.org/wikipedia/commons/7/71/University_of_Waterloo_wordmark.svg' },
-      { name: 'University of Alberta', domain: 'ualberta.ca', logo: 'https://upload.wikimedia.org/wikipedia/commons/e/e1/University_of_Alberta_coat_of_arms.svg' },
-      { name: 'Université de Montréal', domain: 'umontreal.ca', logo: 'https://upload.wikimedia.org/wikipedia/commons/3/30/Universit%C3%A4t_Montreal_Logo.svg' },
-      { name: 'McMaster University', domain: 'mcmaster.ca', logo: 'https://upload.wikimedia.org/wikipedia/commons/f/f6/McMaster_University_wordmark.png' },
-      { name: 'University of Calgary', domain: 'ucalgary.ca', logo: 'https://upload.wikimedia.org/wikipedia/commons/2/22/University_of_Calgary_coat_of_arms_without_motto_scroll.svg' },
+      { name: 'University of Toronto', domain: 'utoronto.ca', logo: toronto },
+      { name: 'University of British Columbia', domain: 'ubc.ca', logo: britishColumbia },
+      { name: 'McGill University', domain: 'mcgill.ca', logo: mcgill },
+      { name: 'University of Waterloo', domain: 'uwaterloo.ca', logo: waterloo },
+      { name: 'University of Alberta', domain: 'ualberta.ca', logo: alberta },
+      { name: 'Université de Montréal', domain: 'umontreal.ca', logo: montreal },
+      { name: 'McMaster University', domain: 'mcmaster.ca', logo: mcmaster },
+      { name: 'University of Calgary', domain: 'ucalgary.ca', logo: calgary },
     ],
   },
   {
@@ -240,14 +295,14 @@ export const COUNTRIES_DATA = [
       postgraduate: '1 Year',
     },
     universities: [
-      { name: 'Trinity College Dublin', domain: 'tcd.ie', logo: 'https://upload.wikimedia.org/wikipedia/commons/e/ec/Trinity_College_Dublin_Arms.svg' },
-      { name: 'University College Dublin', domain: 'ucd.ie', logo: 'https://upload.wikimedia.org/wikipedia/en/a/a0/University_College_Dublin_logo.svg' },
-      { name: 'University of Galway', domain: 'universityofgalway.ie', logo: 'https://upload.wikimedia.org/wikipedia/en/a/a9/University_of_Galway_logo.png' },
-      { name: 'University College Cork', domain: 'ucc.ie', logo: 'https://upload.wikimedia.org/wikipedia/en/9/9f/University_College_Cork_logo.svg' },
-      { name: 'Dublin City University', domain: 'dcu.ie', logo: 'https://upload.wikimedia.org/wikipedia/commons/b/b2/Dublin_City_University_Logo.svg' },
-      { name: 'University of Limerick', domain: 'ul.ie', logo: 'https://upload.wikimedia.org/wikipedia/en/b/b8/University_of_Limerick_logo.svg' },
-      { name: 'Maynooth University', domain: 'mu.ie', logo: 'https://upload.wikimedia.org/wikipedia/en/f/fa/Maynooth_University_logo.svg' },
-      { name: 'Technological University Dublin', domain: 'tudublin.ie', logo: 'https://upload.wikimedia.org/wikipedia/commons/7/75/TU_Dublin_Logo.svg' },
+      { name: 'Trinity College Dublin', domain: 'tcd.ie', logo: trinityCollegeDublin },
+      { name: 'University College Dublin', domain: 'ucd.ie', logo: universityCollegeDublin },
+      { name: 'University of Galway', domain: 'universityofgalway.ie', logo: universityOfGalway },
+      { name: 'University College Cork', domain: 'ucc.ie', logo: universityCollegeCork },
+      { name: 'Dublin City University', domain: 'dcu.ie', logo: dublinCityUniversity },
+      { name: 'University of Limerick', domain: 'ul.ie', logo: universityOfLimerick },
+      { name: 'Maynooth University', domain: 'mu.ie', logo: maynoothUniversity },
+      { name: 'Technological University Dublin', domain: 'tudublin.ie', logo: technologicalUniversityDublin },
     ],
   },
   {
@@ -300,14 +355,14 @@ export const COUNTRIES_DATA = [
       postgraduate: '1.5–2 Years',
     },
     universities: [
-      { name: 'University of Melbourne', domain: 'unimelb.edu.au', logo: 'https://upload.wikimedia.org/wikipedia/commons/2/22/Arms_of_the_University_of_Melbourne.svg' },
-      { name: 'University of Sydney', domain: 'sydney.edu.au', logo: 'https://upload.wikimedia.org/wikipedia/en/7/73/University_of_Sydney_logo.svg' },
-      { name: 'UNSW Sydney', domain: 'unsw.edu.au', logo: 'https://upload.wikimedia.org/wikipedia/en/8/8e/The_UNSW_logo.svg' },
-      { name: 'Australian National University', domain: 'anu.edu.au', logo: 'https://upload.wikimedia.org/wikipedia/commons/2/24/Arms_of_the_Australian_National_University.svg' },
-      { name: 'Monash University', domain: 'monash.edu', logo: 'https://upload.wikimedia.org/wikipedia/commons/3/30/Monash_University_logo.svg' },
-      { name: 'University of Queensland', domain: 'uq.edu.au', logo: 'https://upload.wikimedia.org/wikipedia/en/d/d7/University_of_Queensland_logo.svg' },
-      { name: 'University of Adelaide', domain: 'adelaide.edu.au', logo: 'https://upload.wikimedia.org/wikipedia/commons/b/b5/Arms_of_the_University_of_Adelaide.svg' },
-      { name: 'University of Technology Sydney', domain: 'uts.edu.au', logo: 'https://upload.wikimedia.org/wikipedia/en/b/b8/UTS_Logo.svg' },
+      { name: 'University of Melbourne', domain: 'unimelb.edu.au', logo: melbourne },
+      { name: 'University of Sydney', domain: 'sydney.edu.au', logo: sydney },
+      { name: 'UNSW Sydney', domain: 'unsw.edu.au', logo: unsw },
+      { name: 'Australian National University', domain: 'anu.edu.au', logo: australianNational },
+      { name: 'Monash University', domain: 'monash.edu', logo: monash },
+      { name: 'University of Queensland', domain: 'uq.edu.au', logo: queensland },
+      { name: 'University of Adelaide', domain: 'adelaide.edu.au', logo: adelaide },
+      { name: 'University of Technology Sydney', domain: 'uts.edu.au', logo: technologySydney },
     ],
   },
   {
@@ -356,14 +411,14 @@ export const COUNTRIES_DATA = [
       postgraduate: '1–2 Years',
     },
     universities: [
-      { name: 'University of Auckland', domain: 'auckland.ac.nz', logo: 'https://upload.wikimedia.org/wikipedia/commons/d/d9/Coat_of_arms_of_the_University_of_Auckland.svg' },
-      { name: 'University of Otago', domain: 'otago.ac.nz', logo: 'https://upload.wikimedia.org/wikipedia/commons/f/f3/Arms_of_the_University_of_Otago.svg' },
-      { name: 'Victoria University of Wellington', domain: 'victoria.ac.nz', logo: 'https://upload.wikimedia.org/wikipedia/commons/3/30/Victoria_University_of_Wellington_coat_of_arms_%28shield_only%29.svg' },
-      { name: 'University of Canterbury', domain: 'canterbury.ac.nz', logo: 'https://upload.wikimedia.org/wikipedia/commons/7/7e/Coat_of_arms_of_the_University_of_Canterbury.svg' },
-      { name: 'Massey University', domain: 'massey.ac.nz', logo: 'https://upload.wikimedia.org/wikipedia/commons/a/ae/Coat_of_Arms_of_Massey_University.svg' },
-      { name: 'University of Waikato', domain: 'waikato.ac.nz', logo: 'https://upload.wikimedia.org/wikipedia/en/4/4c/University_of_Waikato_Logo.svg' },
-      { name: 'Lincoln University', domain: 'lincoln.ac.nz', logo: 'https://upload.wikimedia.org/wikipedia/en/3/38/Lincoln_University_New_Zealand_logo.svg' },
-      { name: 'Auckland University of Technology', domain: 'aut.ac.nz', logo: 'https://upload.wikimedia.org/wikipedia/commons/b/b3/Logo_of_Auckland_University_of_Technology.svg' },
+      { name: 'University of Auckland', domain: 'auckland.ac.nz', logo: auckland },
+      { name: 'University of Otago', domain: 'otago.ac.nz', logo: otago },
+      { name: 'Victoria University of Wellington', domain: 'victoria.ac.nz', logo: victoriaWellington },
+      { name: 'University of Canterbury', domain: 'canterbury.ac.nz', logo: canterbury },
+      { name: 'Massey University', domain: 'massey.ac.nz', logo: massey },
+      { name: 'University of Waikato', domain: 'waikato.ac.nz', logo: waikato },
+      { name: 'Lincoln University', domain: 'lincoln.ac.nz', logo: lincoln },
+      { name: 'Auckland University of Technology', domain: 'aut.ac.nz', logo: aut },
     ],
   },
   {
@@ -545,8 +600,8 @@ export const COUNTRIES_DATA = [
     id: 'finland',
     name: 'Finland',
     flag: 'https://flagcdn.com/w160/fi.png',
-    image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=800&q=80',
-    heroImage: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=1920&q=85',
+    image: 'https://images.pexels.com/photos/31430640/pexels-photo-31430640.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&dpr=1',
+    heroImage: 'https://images.pexels.com/photos/31430640/pexels-photo-31430640.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
     emoji: '🇫🇮',
     overview:
       'Finland is globally recognized for its innovative education system, high-quality research, and focus on work-life balance. Students enjoy a safe, clean environment, stunning natural beauty, and a progressive society that values creativity and critical thinking.',
