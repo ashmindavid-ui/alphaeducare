@@ -1,18 +1,8 @@
+import { Link } from 'react-router-dom';
 import SectionTitle from './SectionTitle';
 import useReveal from '../hooks/useReveal';
+import SERVICES from '../data/services';
 import './Services.css';
-
-const SERVICES = [
-  { icon: 'fa-comments', title: 'Career Counselling' },
-  { icon: 'fa-school', title: 'Course & University Selection' },
-  { icon: 'fa-file-signature', title: 'Application Assistance' },
-  { icon: 'fa-stamp', title: 'Visa Filing Support' },
-  { icon: 'fa-hand-holding-dollar', title: 'Scholarship & Loan Assistance' },
-  { icon: 'fa-house-chimney', title: 'Accommodation Assistance' },
-  { icon: 'fa-suitcase-rolling', title: 'Pre-Departure Guidance' },
-  { icon: 'fa-language', title: 'German Language Training' },
-  { icon: 'fa-pen-to-square', title: 'IELTS Training' },
-];
 
 export default function Services() {
   const ref = useReveal();
@@ -27,16 +17,20 @@ export default function Services() {
         <div className="services__grid reveal" ref={ref}>
           {SERVICES.map((s) => (
             <div className="service-card" key={s.title}>
-              <i className={`fa-solid ${s.icon}`}></i>
-              <h3>{s.title}</h3>
+              <div className="service-card__image">
+                <img src={s.image} alt={s.title} loading="lazy" />
+              </div>
+              <div className="service-card__body">
+                <h3>{s.title}</h3>
+              </div>
             </div>
           ))}
         </div>
 
         <div className="services__cta">
-          <a href="#contact" className="btn btn-gold">
+          <Link to="/services" className="btn btn-gold">
             View All Services
-          </a>
+          </Link>
         </div>
       </div>
     </section>

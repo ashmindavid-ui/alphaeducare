@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import logo from '../assets/logo.png';
 import './Footer.css';
 
@@ -24,22 +25,22 @@ export default function Footer() {
         <div className="footer__col">
           <h4>Quick Links</h4>
           <ul>
-            <li><a href="#home">Home</a></li>
-            <li><a href="/about">About Us</a></li>
-            <li><a href="/#countries">Countries</a></li>
-            <li><a href="#services">Services</a></li>
-            <li><a href="/#contact">Contact Us</a></li>
+            <li><Link to="/">Home</Link></li>
+            <li><Link to="/about">About Us</Link></li>
+            <li><Link to="/#countries">Countries</Link></li>
+            <li><Link to="/#services">Services</Link></li>
+            <li><Link to="/#contact">Contact Us</Link></li>
           </ul>
         </div>
 
         <div className="footer__col">
           <h4>Our Services</h4>
           <ul>
-            <li><a href="#services">Career Counselling</a></li>
-            <li><a href="#services">University Selection</a></li>
-            <li><a href="#services">Visa Assistance</a></li>
-            <li><a href="#services">Scholarship Guidance</a></li>
-            <li><a href="#services">Pre-Departure Support</a></li>
+            <li><Link to="/#services">Career Counselling</Link></li>
+            <li><Link to="/#services">University Selection</Link></li>
+            <li><Link to="/#services">Visa Assistance</Link></li>
+            <li><Link to="/#services">Scholarship Guidance</Link></li>
+            <li><Link to="/#services">Pre-Departure Support</Link></li>
           </ul>
         </div>
 

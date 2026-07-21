@@ -122,9 +122,9 @@ export default function Hero() {
             <button className="btn btn-gold" onClick={() => setShowForm(true)}>
               Book Free Counselling
             </button>
-            <a href="/#countries" className="btn btn-outline">
+            <Link to="/#countries" className="btn btn-outline">
               Explore Countries <i className="fa-solid fa-arrow-right"></i>
-            </a>
+            </Link>
           </div>
 
           {/* Dots navigation */}

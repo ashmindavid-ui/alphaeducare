@@ -174,32 +174,6 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Why Choose Us */}
-      <section className="about-why section">
-        <div className="container">
-          <SectionTitle eyebrow="Why Choose Us" title="Why Alpha Global" highlighted="Educare?" />
-          <div className="about-why__grid">
-            {[
-              { icon: 'fa-calendar-alt', text: 'Guiding students in India and abroad since 2019.' },
-              { icon: 'fa-user-graduate', text: 'Successfully guided 300+ students in achieving their higher education goals.' },
-              { icon: 'fa-handshake', text: 'Personalized one-to-one counselling for every student.' },
-              { icon: 'fa-shield-alt', text: 'Professional, transparent, and ethical guidance.' },
-              { icon: 'fa-passport', text: 'End-to-end admission and visa assistance.' },
-              { icon: 'fa-chalkboard-teacher', text: 'Free educational webinars and career awareness seminars.' },
-              { icon: 'fa-language', text: 'IELTS and German language training.' },
-              { icon: 'fa-globe', text: 'Strong partnerships with universities across multiple countries.' },
-              { icon: 'fa-heart', text: 'Dedicated support before, during, and after admission.' },
-              { icon: 'fa-star', text: 'Student-first approach focused on long-term success.' },
-            ].map((item, i) => (
-              <div className="about-why__card" key={i}>
-                <i className={`fa-solid ${item.icon}`}></i>
-                <p>{item.text}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* Our Commitment */}
       <section className="about-commit section">
         <div className="container">

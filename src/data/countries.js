@@ -53,6 +53,64 @@ import waikato from '../assets/University of Waikato.png';
 import lincoln from '../assets/Lincoln University.png';
 import aut from '../assets/Auckland University of Technology.png';
 
+// Germany
+import technicalUniversityMunich from '../assets/Technical University of Munich.png';
+import ludwigMaximilianMunich from '../assets/Ludwig Maximilian University of Munich.png';
+import heidelberg from '../assets/Heidelberg University.png';
+import rwthAachen from '../assets/RWTH Aachen University.png';
+import humboldtBerlin from '../assets/Humboldt University of Berlin.png';
+import freeBerlin from '../assets/Free University of Berlin.png';
+import stuttgart from '../assets/University of Stuttgart.png';
+import technicalBerlin from '../assets/Technical University of Berlin.png';
+
+// France
+import sorbonne from '../assets/Sorbonne University.png';
+import psl from "../assets/Université PSL (Paris Sciences et Lettres).png";
+import ecolePolytechnique from "../assets/École Polytechnique.png";
+import hecParis from '../assets/HEC Paris.png';
+import essec from '../assets/ESSEC Business School.png';
+import parisSaclay from '../assets/Université Paris-Saclay.png';
+import insead from '../assets/INSEAD.png';
+import grenobleAlpes from '../assets/Université Grenoble Alpes.png';
+
+// Sweden
+import lund from '../assets/Lund University.png';
+import uppsala from '../assets/Uppsala University.png';
+import stockholm from '../assets/Stockholm University.png';
+import kth from '../assets/KTH Royal Institute of Technology.png';
+import chalmers from '../assets/Chalmers University of Technology.png';
+import gothenburg from '../assets/University of Gothenburg.png';
+import linkoping from '../assets/Linköping University.png';
+import slu from '../assets/Swedish University of Agricultural Sciences.png';
+
+// Finland
+import helsinki from '../assets/University of Helsinki.png';
+import aalto from '../assets/Aalto University.png';
+import turku from '../assets/University of Turku.png';
+import tampere from '../assets/Tampere University.png';
+import oulu from '../assets/University of Oulu.png';
+import easternFinland from '../assets/University of Eastern Finland.png';
+import lut from '../assets/LUT University.png';
+import aboAkademi from '../assets/Åbo Akademi University.png';
+
+// Italy
+import bologna from '../assets/University of Bologna.png';
+import sapienza from '../assets/Sapienza University of Rome.png';
+import politecnicoMilano from '../assets/Politecnico di Milano.png';
+import milan from '../assets/University of Milan.png';
+import politecnicoTorino from '../assets/Politecnico di Torino.png';
+import florence from '../assets/University of Florence.png';
+import padua from '../assets/University of Padua.png';
+import trento from '../assets/University of Trento.png';
+
+// Malta
+import malta from '../assets/University of Malta.png';
+import mcast from '../assets/Malta College of Arts, Science and Technology.png';
+import americanMalta from '../assets/American University of Malta.png';
+import globalMalta from '../assets/Global College Malta.png';
+import lscMalta from '../assets/London School of Commerce Malta.png';
+import stMartins from "../assets/St. Martin's Institute of Higher Education.png";
+
 export const COUNTRIES_DATA = [
   {
     id: 'united-kingdom',
@@ -470,14 +528,14 @@ export const COUNTRIES_DATA = [
       postgraduate: '2 Years',
     },
     universities: [
-      { name: 'Technical University of Munich', domain: 'tum.de', logo: 'https://upload.wikimedia.org/wikipedia/commons/e/e0/Logo_of_the_Technical_University_of_Munich.svg' },
-      { name: 'Ludwig Maximilian University of Munich', domain: 'lmu.de', logo: 'https://upload.wikimedia.org/wikipedia/commons/5/52/LMU_Muenchen_Logo.svg' },
-      { name: 'Heidelberg University', domain: 'uni-heidelberg.de', logo: 'https://upload.wikimedia.org/wikipedia/commons/6/67/Logo_University_of_Heidelberg.svg' },
-      { name: 'RWTH Aachen University', domain: 'rwth-aachen.de', logo: 'https://upload.wikimedia.org/wikipedia/commons/e/e5/RWTH_Logo_3.svg' },
-      { name: 'Humboldt University of Berlin', domain: 'hu-berlin.de', logo: 'https://upload.wikimedia.org/wikipedia/commons/d/d3/Huberlin-logo.svg' },
-      { name: 'Free University of Berlin', domain: 'fu-berlin.de', logo: 'https://upload.wikimedia.org/wikipedia/commons/9/91/Freie_Universit%C3%A4t_Berlin_Logo_05.2024.svg' },
-      { name: 'University of Stuttgart', domain: 'uni-stuttgart.de', logo: 'https://upload.wikimedia.org/wikipedia/commons/0/07/Universit%C3%A4t_Stuttgart_Logo.svg' },
-      { name: 'Technical University of Berlin', domain: 'tu-berlin.de', logo: 'https://upload.wikimedia.org/wikipedia/commons/f/ff/Logo_der_Technischen_Universit%C3%A4t_Berlin.svg' },
+      { name: 'Technical University of Munich', domain: 'tum.de', logo: technicalUniversityMunich },
+      { name: 'Ludwig Maximilian University of Munich', domain: 'lmu.de', logo: ludwigMaximilianMunich },
+      { name: 'Heidelberg University', domain: 'uni-heidelberg.de', logo: heidelberg },
+      { name: 'RWTH Aachen University', domain: 'rwth-aachen.de', logo: rwthAachen },
+      { name: 'Humboldt University of Berlin', domain: 'hu-berlin.de', logo: humboldtBerlin },
+      { name: 'Free University of Berlin', domain: 'fu-berlin.de', logo: freeBerlin },
+      { name: 'University of Stuttgart', domain: 'uni-stuttgart.de', logo: stuttgart },
+      { name: 'Technical University of Berlin', domain: 'tu-berlin.de', logo: technicalBerlin },
     ],
   },
   {
@@ -529,14 +587,14 @@ export const COUNTRIES_DATA = [
       postgraduate: '2 Years',
     },
     universities: [
-      { name: 'Sorbonne University', domain: 'sorbonne-universite.fr', logo: 'https://upload.wikimedia.org/wikipedia/commons/e/ec/Logo_of_Sorbonne_University.svg' },
-      { name: 'Université PSL (Paris Sciences et Lettres)', domain: 'psl.eu', logo: 'https://upload.wikimedia.org/wikipedia/commons/1/1d/LOGO-PSL-juin-2026.svg' },
-      { name: 'École Polytechnique', domain: 'polytechnique.edu', logo: 'https://upload.wikimedia.org/wikipedia/commons/8/87/%C3%89cole_polytechnique_signature.svg' },
-      { name: 'HEC Paris', domain: 'hec.edu', logo: 'https://upload.wikimedia.org/wikipedia/commons/8/86/HEC_Paris.svg' },
-      { name: 'ESSEC Business School', domain: 'essec.edu', logo: 'https://upload.wikimedia.org/wikipedia/commons/4/4b/ESSEC_Logo.svg' },
-      { name: 'Université Paris-Saclay', domain: 'universite-paris-saclay.fr', logo: 'https://upload.wikimedia.org/wikipedia/commons/0/07/Logo_Universit%C3%A9_Paris-Saclay_2019-12.svg' },
-      { name: 'INSEAD', domain: 'insead.edu', logo: 'https://upload.wikimedia.org/wikipedia/commons/a/a2/Logo_Insead.svg' },
-      { name: 'Université Grenoble Alpes', domain: 'univ-grenoble-alpes.fr', logo: 'https://upload.wikimedia.org/wikipedia/commons/4/4d/Logo_Universit%C3%A9_Grenoble_Alpes_2020.svg' },
+      { name: 'Sorbonne University', domain: 'sorbonne-universite.fr', logo: sorbonne },
+      { name: 'Université PSL (Paris Sciences et Lettres)', domain: 'psl.eu', logo: psl },
+      { name: 'École Polytechnique', domain: 'polytechnique.edu', logo: ecolePolytechnique },
+      { name: 'HEC Paris', domain: 'hec.edu', logo: hecParis },
+      { name: 'ESSEC Business School', domain: 'essec.edu', logo: essec },
+      { name: 'Université Paris-Saclay', domain: 'universite-paris-saclay.fr', logo: parisSaclay },
+      { name: 'INSEAD', domain: 'insead.edu', logo: insead },
+      { name: 'Université Grenoble Alpes', domain: 'univ-grenoble-alpes.fr', logo: grenobleAlpes },
     ],
   },
   {
@@ -586,14 +644,14 @@ export const COUNTRIES_DATA = [
       postgraduate: '1–2 Years',
     },
     universities: [
-      { name: 'Lund University', domain: 'lu.se', logo: 'https://upload.wikimedia.org/wikipedia/en/7/7e/Lund_University_Logo.svg' },
-      { name: 'Uppsala University', domain: 'uu.se', logo: 'https://upload.wikimedia.org/wikipedia/commons/1/18/Uppsala_universitet_logo.jpg' },
-      { name: 'Stockholm University', domain: 'su.se', logo: 'https://upload.wikimedia.org/wikipedia/en/b/b4/Stockholm_University_seal.svg' },
-      { name: 'KTH Royal Institute of Technology', domain: 'kth.se', logo: 'https://upload.wikimedia.org/wikipedia/commons/e/e0/KTH_Logo.svg' },
-      { name: 'Chalmers University of Technology', domain: 'chalmers.se', logo: 'https://upload.wikimedia.org/wikipedia/commons/d/d4/Chalmers_wordmark.svg' },
-      { name: 'University of Gothenburg', domain: 'gu.se', logo: 'https://upload.wikimedia.org/wikipedia/en/8/84/University_of_Gothenburg_logo.svg' },
-      { name: 'Linköping University', domain: 'liu.se', logo: 'https://upload.wikimedia.org/wikipedia/commons/0/0b/Linkoping_University_Logo.svg' },
-      { name: 'Swedish University of Agricultural Sciences', domain: 'slu.se', logo: 'https://upload.wikimedia.org/wikipedia/commons/5/51/SLU-logo.png' },
+      { name: 'Lund University', domain: 'lu.se', logo: lund },
+      { name: 'Uppsala University', domain: 'uu.se', logo: uppsala },
+      { name: 'Stockholm University', domain: 'su.se', logo: stockholm },
+      { name: 'KTH Royal Institute of Technology', domain: 'kth.se', logo: kth },
+      { name: 'Chalmers University of Technology', domain: 'chalmers.se', logo: chalmers },
+      { name: 'University of Gothenburg', domain: 'gu.se', logo: gothenburg },
+      { name: 'Linköping University', domain: 'liu.se', logo: linkoping },
+      { name: 'Swedish University of Agricultural Sciences', domain: 'slu.se', logo: slu },
     ],
   },
   {
@@ -644,14 +702,14 @@ export const COUNTRIES_DATA = [
       postgraduate: '1–2 Years',
     },
     universities: [
-      { name: 'University of Helsinki', domain: 'helsinki.fi', logo: 'https://upload.wikimedia.org/wikipedia/commons/e/e0/Logo_University_of_Helsinki_fi.svg' },
-      { name: 'Aalto University', domain: 'aalto.fi', logo: 'https://upload.wikimedia.org/wikipedia/commons/5/52/Aalto_University_logo.svg' },
-      { name: 'University of Turku', domain: 'utu.fi', logo: 'https://upload.wikimedia.org/wikipedia/en/6/64/University_of_Turku_logo.svg' },
-      { name: 'Tampere University', domain: 'tuni.fi', logo: 'https://upload.wikimedia.org/wikipedia/commons/3/30/Tampere_University_logo.svg' },
-      { name: 'University of Oulu', domain: 'oulu.fi', logo: 'https://upload.wikimedia.org/wikipedia/commons/1/1a/Univ-oulu.svg' },
-      { name: 'University of Eastern Finland', domain: 'uef.fi', logo: 'https://upload.wikimedia.org/wikipedia/commons/1/18/University_of_Eastern_Finland_logo.png' },
-      { name: 'LUT University', domain: 'lut.fi', logo: 'https://upload.wikimedia.org/wikipedia/commons/1/1d/LUT_University_Logo.png' },
-      { name: 'Åbo Akademi University', domain: 'abo.fi', logo: 'https://upload.wikimedia.org/wikipedia/commons/a/a2/%C3%85bo_Akademi_logo_%28English%29.svg' },
+      { name: 'University of Helsinki', domain: 'helsinki.fi', logo: helsinki },
+      { name: 'Aalto University', domain: 'aalto.fi', logo: aalto },
+      { name: 'University of Turku', domain: 'utu.fi', logo: turku },
+      { name: 'Tampere University', domain: 'tuni.fi', logo: tampere },
+      { name: 'University of Oulu', domain: 'oulu.fi', logo: oulu },
+      { name: 'University of Eastern Finland', domain: 'uef.fi', logo: easternFinland },
+      { name: 'LUT University', domain: 'lut.fi', logo: lut },
+      { name: 'Åbo Akademi University', domain: 'abo.fi', logo: aboAkademi },
     ],
   },
   {
@@ -702,14 +760,14 @@ export const COUNTRIES_DATA = [
       postgraduate: '2 Years',
     },
     universities: [
-      { name: 'University of Bologna', domain: 'unibo.it', logo: 'https://upload.wikimedia.org/wikipedia/commons/7/75/Seal_of_the_University_of_Bologna.svg' },
-      { name: 'Sapienza University of Rome', domain: 'uniroma1.it', logo: 'https://upload.wikimedia.org/wikipedia/commons/1/17/Uniroma1.svg' },
-      { name: 'Politecnico di Milano', domain: 'polimi.it', logo: 'https://upload.wikimedia.org/wikipedia/commons/9/90/Politecnicomilano-logo.svg' },
-      { name: 'University of Milan', domain: 'unimi.it', logo: 'https://upload.wikimedia.org/wikipedia/commons/d/df/Unimi-logo.png' },
-      { name: 'Politecnico di Torino', domain: 'polito.it', logo: 'https://upload.wikimedia.org/wikipedia/commons/b/b3/Politecnico_di_Torino_-_wordmark_%28Italy%2C_2021%29.svg' },
-      { name: 'University of Florence', domain: 'unifi.it', logo: 'https://upload.wikimedia.org/wikipedia/en/2/22/University_of_Florence_logo.svg' },
-      { name: 'University of Padua', domain: 'unipd.it', logo: 'https://upload.wikimedia.org/wikipedia/commons/e/ea/Unipd-coat_of_arms.png' },
-      { name: 'University of Trento', domain: 'unitn.it', logo: 'https://upload.wikimedia.org/wikipedia/en/2/23/University_of_Trento_logo.svg' },
+      { name: 'University of Bologna', domain: 'unibo.it', logo: bologna },
+      { name: 'Sapienza University of Rome', domain: 'uniroma1.it', logo: sapienza },
+      { name: 'Politecnico di Milano', domain: 'polimi.it', logo: politecnicoMilano },
+      { name: 'University of Milan', domain: 'unimi.it', logo: milan },
+      { name: 'Politecnico di Torino', domain: 'polito.it', logo: politecnicoTorino },
+      { name: 'University of Florence', domain: 'unifi.it', logo: florence },
+      { name: 'University of Padua', domain: 'unipd.it', logo: padua },
+      { name: 'University of Trento', domain: 'unitn.it', logo: trento },
     ],
   },
   {
@@ -752,12 +810,12 @@ export const COUNTRIES_DATA = [
       postgraduate: '1–2 Years',
     },
     universities: [
-      { name: 'University of Malta', domain: 'um.edu.mt', logo: 'https://upload.wikimedia.org/wikipedia/commons/4/4c/University_of_Malta_Coat_of_Arms.svg' },
-      { name: 'Malta College of Arts, Science and Technology', domain: 'mcast.edu.mt', logo: 'https://upload.wikimedia.org/wikipedia/commons/a/a7/Malta_College_of_Arts%2C_Science_and_Technology_logo.svg' },
-      { name: 'American University of Malta', domain: 'aum.edu.mt', logo: 'https://logo.clearbit.com/aum.edu.mt?size=200' },
-      { name: 'Global College Malta', domain: 'globalcollegemalta.com', logo: 'https://logo.clearbit.com/globalcollegemalta.com?size=200' },
-      { name: 'London School of Commerce Malta', domain: 'lscmalta.com', logo: 'https://logo.clearbit.com/lscmalta.com?size=200' },
-      { name: "St. Martin's Institute of Higher Education", domain: 'stmartins.edu', logo: 'https://logo.clearbit.com/stmartins.edu?size=200' },
+      { name: 'University of Malta', domain: 'um.edu.mt', logo: malta },
+      { name: 'Malta College of Arts, Science and Technology', domain: 'mcast.edu.mt', logo: mcast },
+      { name: 'American University of Malta', domain: 'aum.edu.mt', logo: americanMalta },
+      { name: 'Global College Malta', domain: 'globalcollegemalta.com', logo: globalMalta },
+      { name: 'London School of Commerce Malta', domain: 'lscmalta.com', logo: lscMalta },
+      { name: "St. Martin's Institute of Higher Education", domain: 'stmartins.edu', logo: stMartins },
     ],
   },
 ];

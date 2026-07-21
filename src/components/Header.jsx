@@ -5,12 +5,12 @@ import CounsellingForm from './CounsellingForm';
 import './Header.css';
 
 const NAV_LINKS = [
-  { label: 'Home', href: '/', isRouter: true },
-  { label: 'Countries', href: '/#countries', isRouter: false },
-  { label: 'About', href: '/about', isRouter: true },
-  { label: 'Services', href: '/#services', isRouter: false },
-  { label: 'Testimonials', href: '/#testimonials', isRouter: false },
-  { label: 'Contact', href: '/#contact', isRouter: false },
+  { label: 'Home', to: '/' },
+  { label: 'Countries', to: '/#countries' },
+  { label: 'About', to: '/about' },
+  { label: 'Services', to: '/#services' },
+  { label: 'Testimonials', to: '/#testimonials' },
+  { label: 'Contact', to: '/#contact' },
 ];
 
 export default function Header() {
@@ -50,51 +50,23 @@ export default function Header() {
     setMenuOpen(false);
     if (location.pathname !== '/') {
       navigate('/');
-      window.scrollTo(0, 0);
-    } else {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
     }
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
-  const handleNavClick = (link) => {
+  const handleHashClick = (e, hash) => {
+    e.preventDefault();
     setMenuOpen(false);
-    if (link.isRouter && link.href.startsWith('/') && !link.href.startsWith('/#')) {
-      // Router links - handled by Link component
-      return;
+    if (isHome) {
+      // Already on homepage — just scroll smoothly
+      const el = document.getElementById(hash);
+      if (el) {
+        el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    } else {
+      // Navigate to homepage with hash — ScrollToTop in App.jsx handles scrolling
+      navigate('/#' + hash);
     }
-    // Hash links outside home page
-    if (!isHome && link.href.startsWith('/#')) {
-      window.location.href = link.href;
-    }
-  };
-
-  const renderNavLink = (link) => {
-    if (link.href === '/') {
-      // Home link — always scrolls to top
-      return (
-        <li key={link.href}>
-          <a href="/" onClick={goHome}>
-            {link.label}
-          </a>
-        </li>
-      );
-    }
-    if (link.isRouter && link.href.startsWith('/') && !link.href.startsWith('/#')) {
-      return (
-        <li key={link.href}>
-          <Link to={link.href} onClick={() => setMenuOpen(false)}>
-            {link.label}
-          </Link>
-        </li>
-      );
-    }
-    return (
-      <li key={link.href}>
-        <a href={link.href} onClick={() => handleNavClick(link)}>
-          {link.label}
-        </a>
-      </li>
-    );
   };
 
   return (
@@ -110,7 +82,29 @@ export default function Header() {
 
         <nav className={`header__nav ${menuOpen ? 'header__nav--open' : ''}`}>
           <ul>
-            {NAV_LINKS.map((link) => renderNavLink(link))}
+            {NAV_LINKS.map((link) => {
+              const isHashLink = link.to.startsWith('/#') && link.to.length > 2;
+              if (link.to === '/') {
+                return (
+                  <li key={link.to}>
+                    <a href="/" onClick={goHome}>{link.label}</a>
+                  </li>
+                );
+              }
+              if (isHashLink) {
+                const hash = link.to.split('#')[1];
+                return (
+                  <li key={link.to}>
+                    <a href={link.to} onClick={(e) => handleHashClick(e, hash)}>{link.label}</a>
+                  </li>
+                );
+              }
+              return (
+                <li key={link.to}>
+                  <Link to={link.to} onClick={() => setMenuOpen(false)}>{link.label}</Link>
+                </li>
+              );
+            })}
           </ul>
           <button className="btn btn-gold header__nav-cta" onClick={() => { setMenuOpen(false); setShowForm(true); }}>
             Book Free Counselling

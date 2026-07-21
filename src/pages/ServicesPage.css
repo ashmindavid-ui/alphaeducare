@@ -1,0 +1,232 @@
+/* ==========================================================================
+   Services Page
+   ========================================================================== */
+
+/* ---- Hero ---- */
+
+.services-hero {
+  position: relative;
+  background: linear-gradient(135deg, var(--color-primary-darker), var(--color-primary));
+  min-height: 40vh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+.services-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: url('data:image/svg+xml,%3Csvg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="none" fill-rule="evenodd"%3E%3Cg fill="%23ffffff" fill-opacity="0.03"%3E%3Cpath d="M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E');
+  pointer-events: none;
+}
+
+.services-hero__inner {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  padding-top: 100px;
+  padding-bottom: 50px;
+}
+
+.services-hero__back {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: rgba(255, 255, 255, 0.75);
+  font-weight: 600;
+  font-size: 0.9rem;
+  margin-bottom: 24px;
+  transition: color var(--transition);
+}
+
+.services-hero__back:hover {
+  color: var(--color-gold);
+}
+
+.services-hero__content {
+  text-align: center;
+}
+
+.services-hero__eyebrow {
+  display: inline-block;
+  color: var(--color-gold-light);
+  font-weight: 700;
+  font-size: 0.82rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.services-hero__content h1 {
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  color: var(--color-white);
+  margin-bottom: 16px;
+}
+
+.services-hero__content h1 span {
+  color: var(--color-gold);
+}
+
+.services-hero__subtitle {
+  max-width: 600px;
+  margin: 0 auto;
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.75);
+  line-height: 1.7;
+}
+
+/* ---- Services List ---- */
+
+.services-page {
+  background: var(--color-bg-light);
+}
+
+.services-page__list {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.service-detail {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: center;
+  background: var(--color-white);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+
+.service-detail:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+}
+
+.service-detail__image {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 320px;
+  overflow: hidden;
+}
+
+.service-detail__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.service-detail:hover .service-detail__image img {
+  transform: scale(1.05);
+}
+
+.service-detail__content {
+  padding: 32px 40px 32px 0;
+}
+
+.service-detail--reverse .service-detail__content {
+  padding: 32px 0 32px 40px;
+}
+
+.service-detail__number {
+  display: inline-block;
+  font-family: var(--font-display);
+  font-size: 0.75rem;
+  font-weight: 800;
+  color: var(--color-primary);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+  opacity: 0.5;
+}
+
+.service-detail__content h2 {
+  font-size: 1.4rem;
+  margin-bottom: 14px;
+  color: var(--color-primary-dark);
+}
+
+.service-detail__content p {
+  font-size: 0.95rem;
+  color: var(--color-text-muted);
+  line-height: 1.8;
+}
+
+/* ---- Reverse layout ---- */
+
+.service-detail--reverse {
+  direction: rtl;
+}
+
+.service-detail--reverse .service-detail__content {
+  direction: ltr;
+}
+
+.service-detail--reverse .service-detail__image {
+  direction: ltr;
+}
+
+/* ---- CTA ---- */
+
+.services-page-cta {
+  background: linear-gradient(135deg, var(--color-primary-darker), var(--color-primary));
+  padding: 80px 0;
+}
+
+.services-page-cta .section-title__heading,
+.services-page-cta .section-title__eyebrow {
+  color: var(--color-white);
+}
+
+.services-page-cta .section-title__eyebrow {
+  color: var(--color-gold-light);
+}
+
+.services-page-cta .section-title__eyebrow::before {
+  background: var(--color-gold-light);
+}
+
+.services-page-cta .section-title__heading em {
+  color: var(--color-gold);
+}
+
+.services-page-cta .section-title__subtitle {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.services-page-cta__buttons {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  margin-top: 32px;
+  flex-wrap: wrap;
+}
+
+/* ---- Responsive ---- */
+
+@media (max-width: 860px) {
+  .service-detail {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .service-detail__image {
+    min-height: 240px;
+  }
+
+  .service-detail__content {
+    padding: 28px 24px !important;
+  }
+
+  .service-detail--reverse {
+    direction: ltr;
+  }
+
+  .services-page__list {
+    gap: 28px;
+  }
+}
