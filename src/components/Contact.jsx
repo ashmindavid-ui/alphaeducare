@@ -6,19 +6,33 @@ const INITIAL_FORM = { name: '', email: '', message: '' };
 
 export default function Contact() {
   const [form, setForm] = useState(INITIAL_FORM);
-  const [status, setStatus] = useState('idle'); // idle | sent
+  const [status, setStatus] = useState('idle'); // idle | sent | submitting | error
 
   const handleChange = (e) => {
     setForm((f) => ({ ...f, [e.target.name]: e.target.value }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // TODO: wire this up to your backend / email service (e.g. EmailJS, Formspree, or a custom API route)
-    console.log('Contact form submitted:', form);
-    setStatus('sent');
-    setForm(INITIAL_FORM);
-    setTimeout(() => setStatus('idle'), 4000);
+    setStatus('submitting');
+
+    try {
+      const res = await fetch('/api/submit-form', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ type: 'contact', ...form }),
+      });
+
+      if (!res.ok) throw new Error('Failed to send');
+
+      await res.json();
+      setStatus('sent');
+      setForm(INITIAL_FORM);
+      setTimeout(() => setStatus('idle'), 4000);
+    } catch (err) {
+      console.error('Contact form submission failed:', err);
+      setStatus('error');
+    }
   };
 
   return (
@@ -43,7 +57,7 @@ export default function Contact() {
             </li>
             <li>
               <i className="fa-solid fa-envelope"></i>
-              <a href="mailto:alphaglobaleducare@gmail.com">alphaglobaleducare@gmail.com</a>
+              <a href="mailto:info@alphaglobaleducare.com">info@alphaglobaleducare.com</a>
             </li>
             <li>
               <i className="fa-solid fa-clock"></i>
@@ -95,8 +109,23 @@ export default function Contact() {
             ></textarea>
           </label>
 
-          <button type="submit" className="btn btn-gold contact__submit">
-            {status === 'sent' ? (
+          {status === 'error' && (
+            <div className="contact__error">
+              <i className="fa-solid fa-circle-exclamation"></i>
+              Could not send. Please try again or email us directly.
+            </div>
+          )}
+
+          <button
+            type="submit"
+            className="btn btn-gold contact__submit"
+            disabled={status === 'submitting'}
+          >
+            {status === 'submitting' ? (
+              <>
+                <i className="fa-solid fa-spinner fa-spin"></i> Sending...
+              </>
+            ) : status === 'sent' ? (
               <>
                 <i className="fa-solid fa-check"></i> Message Sent
               </>

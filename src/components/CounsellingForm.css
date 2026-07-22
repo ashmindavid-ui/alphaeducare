@@ -143,6 +143,16 @@
   color: #dc3545;
 }
 
+.counselling-form__alert--info {
+  background: #d1ecf1;
+  border: 1px solid #bee5eb;
+  color: #0c5460;
+}
+
+.counselling-form__alert--info i {
+  color: #17a2b8;
+}
+
 .counselling-form__retry-btn {
   background: none;
   border: none;

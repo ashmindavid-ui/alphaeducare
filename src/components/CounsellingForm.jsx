@@ -24,7 +24,7 @@ export default function CounsellingForm({ onSuccess }) {
     time: '',
   });
   const [errors, setErrors] = useState({});
-  const [status, setStatus] = useState('idle'); // idle | conflict | success
+  const [status, setStatus] = useState('idle'); // idle | conflict | success | submitting | error
 
   const handleChange = (e) => {
     setForm((f) => ({ ...f, [e.target.name]: e.target.value }));
@@ -47,7 +47,7 @@ export default function CounsellingForm({ onSuccess }) {
     return max.toISOString().split('T')[0];
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     const newErrors = {};
@@ -67,12 +67,28 @@ export default function CounsellingForm({ onSuccess }) {
       return;
     }
 
-    console.log('Booking confirmed:', form);
-    setStatus('success');
-    setForm({ name: '', phone: '', country: '', date: '', time: '' });
+    // Submit to backend
+    setStatus('submitting');
 
-    if (onSuccess) {
-      setTimeout(() => onSuccess(), 2000);
+    try {
+      const res = await fetch('/api/submit-form', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ type: 'booking', ...form }),
+      });
+
+      if (!res.ok) throw new Error('Failed to send');
+
+      await res.json();
+      setStatus('success');
+      setForm({ name: '', phone: '', country: '', date: '', time: '' });
+
+      if (onSuccess) {
+        setTimeout(() => onSuccess(), 2000);
+      }
+    } catch (err) {
+      console.error('Booking submission failed:', err);
+      setStatus('error');
     }
   };
 
@@ -99,6 +115,29 @@ export default function CounsellingForm({ onSuccess }) {
         <i className="fa-solid fa-clock"></i>
         <span>Working Hours: Mon - Sat: 9:30 AM - 6:30 PM</span>
       </div>
+
+      {status === 'submitting' && (
+        <div className="counselling-form__alert counselling-form__alert--info">
+          <i className="fa-solid fa-spinner fa-spin"></i>
+          <div>
+            <strong>Submitting...</strong>
+            <p>Please wait while we process your booking.</p>
+          </div>
+        </div>
+      )}
+
+      {status === 'error' && (
+        <div className="counselling-form__alert counselling-form__alert--error">
+          <i className="fa-solid fa-circle-exclamation"></i>
+          <div>
+            <strong>Something went wrong</strong>
+            <p>We couldn't submit your booking. Please try again or call us directly.</p>
+            <button type="button" className="counselling-form__retry-btn" onClick={() => setStatus('idle')}>
+              Try Again <i className="fa-solid fa-arrow-right"></i>
+            </button>
+          </div>
+        </div>
+      )}
 
       {status === 'success' && (
         <div className="counselling-form__alert counselling-form__alert--success">
@@ -226,7 +265,7 @@ export default function CounsellingForm({ onSuccess }) {
         <button
           type="submit"
           className="btn btn-gold counselling-form__submit"
-          disabled={status === 'success'}
+          disabled={status === 'success' || status === 'submitting'}
         >
           {status === 'success' ? (
             <><i className="fa-solid fa-check"></i> Booking Confirmed</>
