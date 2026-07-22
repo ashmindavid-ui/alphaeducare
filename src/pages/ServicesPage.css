@@ -206,6 +206,86 @@
   flex-wrap: wrap;
 }
 
+/* ---- Booking Form Overlay & Card ---- */
+
+.services-form-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  background: rgba(4, 26, 61, 0.5);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding-top: 100px;
+  animation: servicesFadeIn 0.2s ease;
+}
+
+@keyframes servicesFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.services-form-card {
+  background: var(--color-white);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 20px 60px rgba(4, 26, 61, 0.25);
+  width: 100%;
+  max-width: 560px;
+  max-height: 85vh;
+  overflow-y: auto;
+  padding: 28px 32px 32px;
+  position: relative;
+  animation: servicesSlideDown 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes servicesSlideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px) scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.services-form-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: none;
+  background: var(--color-bg-light);
+  color: var(--color-text-muted);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: all var(--transition);
+}
+
+.services-form-close:hover {
+  background: var(--color-primary);
+  color: var(--color-white);
+}
+
+@media (max-width: 600px) {
+  .services-form-overlay {
+    padding-top: 80px;
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+
+  .services-form-card {
+    padding: 24px 20px 28px;
+    max-height: 80vh;
+  }
+}
+
 /* ---- Responsive ---- */
 
 @media (max-width: 860px) {
