@@ -263,7 +263,7 @@ export default function CountryPage() {
               />
               <div className="country-enquiry__contact">
                 <p><i className="fa-solid fa-phone"></i> +91 93608 86307</p>
-                <p><i className="fa-solid fa-envelope"></i> alphaglobaleducare@gmail.com</p>
+                <p><i className="fa-solid fa-envelope"></i> info@alphaglobaleducare.com</p>
                 <p><i className="fa-brands fa-whatsapp"></i> <a href="https://wa.me/919360886307" target="_blank" rel="noreferrer">Chat on WhatsApp</a></p>
               </div>
             </div>

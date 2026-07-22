@@ -49,7 +49,7 @@ export default function Contact() {
           <ul className="contact__details">
             <li>
               <i className="fa-solid fa-location-dot"></i>
-              <span>123, 1st Floor, Anwarul Road, Connaught Place, Delhi</span>
+              <span>Coimbatore, Tamilnadu</span>
             </li>
             <li>
               <i className="fa-solid fa-phone"></i>

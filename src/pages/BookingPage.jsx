@@ -111,7 +111,7 @@ export default function BookingPage() {
               <i className="fa-solid fa-envelope"></i>
               <div>
                 <strong>Email Us</strong>
-                <a href="mailto:alphaglobaleducare@gmail.com">alphaglobaleducare@gmail.com</a>
+                <a href="mailto:info@alphaglobaleducare.com">info@alphaglobaleducare.com</a>
               </div>
             </div>
             <div className="booking__info-card">

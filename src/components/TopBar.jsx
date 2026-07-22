@@ -8,8 +8,8 @@ export default function TopBar() {
           <a href="tel:+919360886307">
             <i className="fa-solid fa-phone"></i> +91 93608 86307
           </a>
-          <a href="mailto:alphaglobaleducare@gmail.com">
-            <i className="fa-solid fa-envelope"></i> alphaglobaleducare@gmail.com
+          <a href="mailto:info@alphaglobaleducare.com">
+            <i className="fa-solid fa-envelope"></i> info@alphaglobaleducare.com
           </a>
         </div>
         <div className="topbar__social">

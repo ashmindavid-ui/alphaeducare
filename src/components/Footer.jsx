@@ -47,9 +47,9 @@ export default function Footer() {
         <div className="footer__col">
           <h4>Contact Us</h4>
           <ul className="footer__contact">
-            <li><i className="fa-solid fa-location-dot"></i> 123, 1st Floor, Anwarul Road, Connaught Place, Delhi</li>
+            <li><i className="fa-solid fa-location-dot"></i> Coimbatore, Tamilnadu</li>
             <li><i className="fa-solid fa-phone"></i> +91 93608 86307</li>
-            <li><i className="fa-solid fa-envelope"></i> alphaglobaleducare@gmail.com</li>
+            <li><i className="fa-solid fa-envelope"></i> info@alphaglobaleducare.com</li>
             <li><i className="fa-solid fa-clock"></i> Mon - Sat: 9:30 AM - 6:30 PM</li>
           </ul>
         </div>
