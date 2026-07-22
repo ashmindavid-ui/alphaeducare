@@ -97,12 +97,12 @@ export default function Hero() {
           strokeWidth="2"
           strokeDasharray="2 14"
           strokeLinecap="round"
-        />
-        <circle r="5" fill="var(--color-gold)">
-          <animateMotion dur="9s" repeatCount="indefinite" rotate="auto">
-            <mpath href="#flightArc" />
-          </animateMotion>
-        </circle>
+        />          <g>
+            <animateMotion dur="9s" repeatCount="indefinite" rotate="auto">
+              <mpath href="#flightArc" />
+            </animateMotion>
+            <path d="M-5.5,-0.4 L-5.5,-1.4 L-4,-1 L-4,-3.2 L-0.3,-1.2 L1.5,-0.5 L4,-0.15 L4.5,0 L4,0.15 L1.5,0.5 L-0.3,1.2 L-4,3.2 L-4,1 L-5.5,1.4 L-5.5,0.4 Z" fill="var(--color-gold)" />
+          </g>
       </svg>
 
       {/* === Content === */}
