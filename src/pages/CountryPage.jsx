@@ -67,7 +67,7 @@ export default function CountryPage() {
   const country = COUNTRIES_DATA.find((c) => c.id === countryId);
 
   const [form, setForm] = useState({ name: '', email: '', phone: '', message: '' });
-  const [formSent, setFormSent] = useState(false);
+  const [formStatus, setFormStatus] = useState('idle'); // idle | submitting | success | error
 
   if (!country) {
     return (
@@ -86,12 +86,28 @@ export default function CountryPage() {
     setForm((f) => ({ ...f, [e.target.name]: e.target.value }));
   };
 
-  const handleFormSubmit = (e) => {
+  const handleFormSubmit = async (e) => {
     e.preventDefault();
-    console.log('Enquiry for', country.name, ':', form);
-    setFormSent(true);
-    setForm({ name: '', email: '', phone: '', message: '' });
-    setTimeout(() => setFormSent(false), 4000);
+
+    setFormStatus('submitting');
+
+    try {
+      const res = await fetch('/api/submit-form', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ type: 'contact', ...form }),
+      });
+
+      if (!res.ok) throw new Error('Failed to send');
+
+      await res.json();
+      setFormStatus('success');
+      setForm({ name: '', email: '', phone: '', message: '' });
+      setTimeout(() => setFormStatus('idle'), 4000);
+    } catch (err) {
+      console.error('Country enquiry submission failed:', err);
+      setFormStatus('error');
+    }
   };
 
   const getLogoUrl = (uni) =>
@@ -270,6 +286,40 @@ export default function CountryPage() {
 
             <form className="country-enquiry__form" onSubmit={handleFormSubmit}>
               <h3>Send us an Enquiry</h3>
+
+              {formStatus === 'submitting' && (
+                <div className="country-enquiry__alert country-enquiry__alert--info">
+                  <i className="fa-solid fa-spinner fa-spin"></i>
+                  <div>
+                    <strong>Submitting...</strong>
+                    <p>Please wait while we send your enquiry.</p>
+                  </div>
+                </div>
+              )}
+
+              {formStatus === 'error' && (
+                <div className="country-enquiry__alert country-enquiry__alert--error">
+                  <i className="fa-solid fa-circle-exclamation"></i>
+                  <div>
+                    <strong>Something went wrong</strong>
+                    <p>We couldn't send your enquiry. Please try again or email us directly.</p>
+                    <button type="button" className="country-enquiry__retry-btn" onClick={() => setFormStatus('idle')}>
+                      Try Again <i className="fa-solid fa-arrow-right"></i>
+                    </button>
+                  </div>
+                </div>
+              )}
+
+              {formStatus === 'success' && (
+                <div className="country-enquiry__alert country-enquiry__alert--success">
+                  <i className="fa-solid fa-circle-check"></i>
+                  <div>
+                    <strong>Enquiry Sent!</strong>
+                    <p>We have received your enquiry and will get back to you shortly.</p>
+                  </div>
+                </div>
+              )}
+
               <label>
                 Full Name
                 <input type="text" name="name" placeholder="Your full name" value={form.name} onChange={handleFormChange} required />
@@ -286,8 +336,10 @@ export default function CountryPage() {
                 Message
                 <textarea name="message" rows="3" placeholder={`I'm interested in studying in ${country.name}...`} value={form.message} onChange={handleFormChange} required></textarea>
               </label>
-              <button type="submit" className="btn btn-gold" style={{ width: '100%' }}>
-                {formSent ? (
+              <button type="submit" className="btn btn-gold" style={{ width: '100%' }} disabled={formStatus === 'submitting' || formStatus === 'success'}>
+                {formStatus === 'submitting' ? (
+                  <><i className="fa-solid fa-spinner fa-spin"></i> Submitting...</>
+                ) : formStatus === 'success' ? (
                   <><i className="fa-solid fa-check"></i> Enquiry Sent</>
                 ) : (
                   <><i className="fa-solid fa-paper-plane"></i> Send Enquiry</>

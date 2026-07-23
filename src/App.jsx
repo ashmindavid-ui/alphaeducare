@@ -6,6 +6,8 @@ import Hero from './components/Hero';
 import Countries from './components/Countries';
 import Services from './components/Services';
 import Testimonials from './components/Testimonials';
+import Partners from './components/Partners';
+import News from './components/News';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import CountryPage from './pages/CountryPage';
@@ -39,6 +41,8 @@ function HomePage() {
       <Countries />
       <Services />
       <Testimonials />
+      <Partners />
+      <News />
       <Contact />
     </>
   );

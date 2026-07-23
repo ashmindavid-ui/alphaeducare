@@ -2,14 +2,6 @@ import { useState } from 'react';
 import { COUNTRIES_DATA } from '../data/countries';
 import './CounsellingForm.css';
 
-// Simulate existing bookings
-const EXISTING_BOOKINGS = [
-  { date: '2026-07-15', time: '10:00' },
-  { date: '2026-07-15', time: '11:00' },
-  { date: '2026-07-16', time: '14:00' },
-  { date: '2026-07-17', time: '09:00' },
-];
-
 const TIME_SLOTS = [
   '09:00', '10:00', '11:00', '12:00',
   '13:00', '14:00', '15:00', '16:00', '17:00',
@@ -27,13 +19,10 @@ export default function CounsellingForm({ onSuccess }) {
   const [status, setStatus] = useState('idle'); // idle | conflict | success | submitting | error
 
   const handleChange = (e) => {
-    setForm((f) => ({ ...f, [e.target.name]: e.target.value }));
-    setErrors((e) => ({ ...e, [e.target.name]: '' }));
+    const { name, value } = e.target;
+    setForm((f) => ({ ...f, [name]: value }));
+    setErrors((prev) => ({ ...prev, [name]: '' }));
     setStatus('idle');
-  };
-
-  const isTimeSlotBooked = (date, time) => {
-    return EXISTING_BOOKINGS.some((b) => b.date === date && b.time === time);
   };
 
   const getMinDate = () => {
@@ -62,12 +51,7 @@ export default function CounsellingForm({ onSuccess }) {
       return;
     }
 
-    if (isTimeSlotBooked(form.date, form.time)) {
-      setStatus('conflict');
-      return;
-    }
-
-    // Submit to backend
+    // Submit to backend — backend handles real conflict checking via Vercel KV
     setStatus('submitting');
 
     try {
@@ -77,9 +61,16 @@ export default function CounsellingForm({ onSuccess }) {
         body: JSON.stringify({ type: 'booking', ...form }),
       });
 
+      const result = await res.json();
+
+      // Check if backend returned a slot conflict
+      if (res.status === 409 && result.conflict) {
+        setStatus('conflict');
+        return;
+      }
+
       if (!res.ok) throw new Error('Failed to send');
 
-      await res.json();
       setStatus('success');
       setForm({ name: '', phone: '', country: '', date: '', time: '' });
 
@@ -97,9 +88,8 @@ export default function CounsellingForm({ onSuccess }) {
     setForm((f) => ({ ...f, time: '' }));
   };
 
-  const availableTimeSlots = form.date
-    ? TIME_SLOTS.filter((t) => !isTimeSlotBooked(form.date, t))
-    : TIME_SLOTS;
+  // All time slots are shown; conflict checking happens on the backend
+  const availableTimeSlots = TIME_SLOTS;
 
   return (
     <div className="counselling-form">
@@ -223,14 +213,11 @@ export default function CounsellingForm({ onSuccess }) {
             Preferred Time *
             <select name="time" value={form.time} onChange={handleChange}>
               <option value="">Select a time</option>
-              {TIME_SLOTS.map((t) => {
-                const booked = form.date && isTimeSlotBooked(form.date, t);
-                return (
-                  <option key={t} value={t} disabled={booked}>
-                    {t} {booked ? '(Booked)' : ''}
-                  </option>
-                );
-              })}
+              {TIME_SLOTS.map((t) => (
+                <option key={t} value={t}>
+                  {t}
+                </option>
+              ))}
             </select>
             {errors.time && <span className="counselling-form__field-error">{errors.time}</span>}
           </label>
@@ -248,7 +235,7 @@ export default function CounsellingForm({ onSuccess }) {
                     className={`counselling-form__time-chip ${form.time === t ? 'counselling-form__time-chip--active' : ''}`}
                     onClick={() => {
                       setForm((f) => ({ ...f, time: t }));
-                      setErrors((e) => ({ ...e, time: '' }));
+                      setErrors((prev) => ({ ...prev, time: '' }));
                       setStatus('idle');
                     }}
                   >

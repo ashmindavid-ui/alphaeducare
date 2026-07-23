@@ -3,14 +3,6 @@ import { Link } from 'react-router-dom';
 import { COUNTRIES_DATA } from '../data/countries';
 import './BookingPage.css';
 
-// Simulate existing bookings -- in production this would come from a backend
-const EXISTING_BOOKINGS = [
-  { date: '2026-07-15', time: '10:00' },
-  { date: '2026-07-15', time: '11:00' },
-  { date: '2026-07-16', time: '14:00' },
-  { date: '2026-07-17', time: '09:00' },
-];
-
 const TIME_SLOTS = [
   '09:00', '10:00', '11:00', '12:00',
   '13:00', '14:00', '15:00', '16:00', '17:00',
@@ -25,16 +17,13 @@ export default function BookingPage() {
     time: '',
   });
   const [errors, setErrors] = useState({});
-  const [status, setStatus] = useState('idle'); // idle | conflict | success
+  const [status, setStatus] = useState('idle'); // idle | conflict | success | submitting | error
 
   const handleChange = (e) => {
-    setForm((f) => ({ ...f, [e.target.name]: e.target.value }));
-    setErrors((e) => ({ ...e, [e.target.name]: '' }));
+    const { name, value } = e.target;
+    setForm((f) => ({ ...f, [name]: value }));
+    setErrors((prev) => ({ ...prev, [name]: '' }));
     setStatus('idle');
-  };
-
-  const isTimeSlotBooked = (date, time) => {
-    return EXISTING_BOOKINGS.some((b) => b.date === date && b.time === time);
   };
 
   const getMinDate = () => {
@@ -48,7 +37,7 @@ export default function BookingPage() {
     return max.toISOString().split('T')[0];
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     const newErrors = {};
@@ -63,18 +52,34 @@ export default function BookingPage() {
       return;
     }
 
-    // Check for time slot conflict
-    if (isTimeSlotBooked(form.date, form.time)) {
-      setStatus('conflict');
-      return;
+    // Submit to backend — backend handles real conflict checking via Vercel KV
+    setStatus('submitting');
+
+    try {
+      const res = await fetch('/api/submit-form', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ type: 'booking', ...form }),
+      });
+
+      const result = await res.json();
+
+      // Check if backend returned a slot conflict
+      if (res.status === 409 && result.conflict) {
+        setStatus('conflict');
+        return;
+      }
+
+      if (!res.ok) throw new Error('Failed to send');
+
+      setStatus('success');
+      setForm({ name: '', phone: '', country: '', date: '', time: '' });
+
+      setTimeout(() => setStatus('idle'), 5000);
+    } catch (err) {
+      console.error('Booking submission failed:', err);
+      setStatus('error');
     }
-
-    // Success
-    console.log('Booking confirmed:', form);
-    setStatus('success');
-    setForm({ name: '', phone: '', country: '', date: '', time: '' });
-
-    setTimeout(() => setStatus('idle'), 5000);
   };
 
   const handleRetry = () => {
@@ -82,9 +87,8 @@ export default function BookingPage() {
     setForm((f) => ({ ...f, time: '' }));
   };
 
-  const availableTimeSlots = form.date
-    ? TIME_SLOTS.filter((t) => !isTimeSlotBooked(form.date, t))
-    : TIME_SLOTS;
+  // All time slots are shown; conflict checking happens on the backend
+  const availableTimeSlots = TIME_SLOTS;
 
   return (
     <section className="booking">
@@ -132,6 +136,29 @@ export default function BookingPage() {
 
           <form className="booking__form" onSubmit={handleSubmit}>
             <h3>Schedule Your Free Counselling</h3>
+
+            {status === 'submitting' && (
+              <div className="booking__alert booking__alert--info">
+                <i className="fa-solid fa-spinner fa-spin"></i>
+                <div>
+                  <strong>Submitting...</strong>
+                  <p>Please wait while we process your booking.</p>
+                </div>
+              </div>
+            )}
+
+            {status === 'error' && (
+              <div className="booking__alert booking__alert--error">
+                <i className="fa-solid fa-circle-exclamation"></i>
+                <div>
+                  <strong>Something went wrong</strong>
+                  <p>We couldn't submit your booking. Please try again or call us directly.</p>
+                  <button type="button" className="booking__retry-btn" onClick={() => setStatus('idle')}>
+                    Try Again <i className="fa-solid fa-arrow-right"></i>
+                  </button>
+                </div>
+              </div>
+            )}
 
             {status === 'success' && (
               <div className="booking__alert booking__alert--success">
@@ -211,14 +238,11 @@ export default function BookingPage() {
                 Preferred Time *
                 <select name="time" value={form.time} onChange={handleChange}>
                   <option value="">Select a time</option>
-                  {TIME_SLOTS.map((t) => {
-                    const booked = form.date && isTimeSlotBooked(form.date, t);
-                    return (
-                      <option key={t} value={t} disabled={booked}>
-                        {t} {booked ? '(Booked)' : ''}
-                      </option>
-                    );
-                  })}
+                  {TIME_SLOTS.map((t) => (
+                    <option key={t} value={t}>
+                      {t}
+                    </option>
+                  ))}
                 </select>
                 {errors.time && <span className="booking__field-error">{errors.time}</span>}
               </label>
@@ -236,7 +260,7 @@ export default function BookingPage() {
                         className={`booking__time-chip ${form.time === t ? 'booking__time-chip--active' : ''}`}
                         onClick={() => {
                           setForm((f) => ({ ...f, time: t }));
-                          setErrors((e) => ({ ...e, time: '' }));
+                          setErrors((prev) => ({ ...prev, time: '' }));
                           setStatus('idle');
                         }}
                       >
@@ -254,9 +278,11 @@ export default function BookingPage() {
               type="submit"
               className="btn btn-gold"
               style={{ width: '100%', marginTop: 8 }}
-              disabled={status === 'success'}
+              disabled={status === 'success' || status === 'submitting'}
             >
-              {status === 'success' ? (
+              {status === 'submitting' ? (
+                <><i className="fa-solid fa-spinner fa-spin"></i> Submitting...</>
+              ) : status === 'success' ? (
                 <><i className="fa-solid fa-check"></i> Booking Confirmed</>
               ) : (
                 <><i className="fa-solid fa-calendar-check"></i> Confirm Booking</>

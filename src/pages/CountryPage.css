@@ -617,6 +617,82 @@
   outline: none;
 }
 
+/* ---- Alerts inside enquiry form ---- */
+
+.country-enquiry__alert {
+  display: flex;
+  gap: 12px;
+  padding: 14px 16px;
+  border-radius: var(--radius-sm);
+  margin-bottom: 18px;
+  align-items: flex-start;
+}
+
+.country-enquiry__alert i {
+  font-size: 1.3rem;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.country-enquiry__alert strong {
+  display: block;
+  font-size: 0.88rem;
+  margin-bottom: 3px;
+}
+
+.country-enquiry__alert p {
+  font-size: 0.82rem;
+  line-height: 1.5;
+}
+
+.country-enquiry__alert--success {
+  background: #d4edda;
+  border: 1px solid #c3e6cb;
+  color: #155724;
+}
+
+.country-enquiry__alert--success i {
+  color: #28a745;
+}
+
+.country-enquiry__alert--error {
+  background: #f8d7da;
+  border: 1px solid #f5c6cb;
+  color: #721c24;
+}
+
+.country-enquiry__alert--error i {
+  color: #dc3545;
+}
+
+.country-enquiry__alert--info {
+  background: #d1ecf1;
+  border: 1px solid #bee5eb;
+  color: #0c5460;
+}
+
+.country-enquiry__alert--info i {
+  color: #17a2b8;
+}
+
+.country-enquiry__retry-btn {
+  background: none;
+  border: none;
+  color: var(--color-primary);
+  font-weight: 700;
+  font-size: 0.82rem;
+  padding: 0;
+  margin-top: 6px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.country-enquiry__retry-btn:hover {
+  text-decoration: underline;
+}
+
 /* ---- Responsive ---- */
 
 @media (max-width: 992px) {
