@@ -27,18 +27,15 @@ const FROM_EMAIL =
   'Alpha Global Educare <onboarding@resend.dev>';
 
 /**
- * Lazily import @vercel/kv so the function still works when KV is not configured.
+ * Get a Redis-backed KV client for booking slot management.
+ * Uses @vercel/kv which auto-detects KV_URL / KV_REST_API_URL env vars.
  */
 let _kv = null;
 async function getKv() {
   if (_kv !== null) return _kv;
   try {
-    const mod = await import('@vercel/kv');
-    _kv = mod.kv;
-    // Verify KV is actually connected by checking env
-    if (!process.env.KV_URL && !process.env.KV_REST_API_URL) {
-      _kv = null;
-    }
+    const { kv } = await import('@vercel/kv');
+    _kv = kv;
   } catch {
     _kv = null;
   }
@@ -128,7 +125,7 @@ export default async function handler(req, res) {
       });
 
       if (error) {
-        console.error('Resend error:', error);
+        console.error('Resend error:', JSON.stringify(error));
         return res.status(500).json({ error: 'Failed to send email' });
       }
 
@@ -169,7 +166,7 @@ export default async function handler(req, res) {
       });
 
       if (error) {
-        console.error('Resend error:', error);
+        console.error('Resend error:', JSON.stringify(error));
         return res.status(500).json({ error: 'Failed to send email' });
       }
 
